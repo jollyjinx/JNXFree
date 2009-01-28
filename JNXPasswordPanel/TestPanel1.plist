@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>JNXPasswordPanel_Credential_Protocol</key>
+		<string>VNC</string>
+		<key>JNXPasswordPanel_Credential_Text</key>
+		<string>Lore ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat voluptat. Lore ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat voluptat.Lore ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat voluptat. Lore ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
+This is
+a multiline
+text at
+the End.</string>
+		<key>JNXPasswordPanel_Credential_Fields</key>
+		<array>
+			<string>TestA</string>
+			<string>JNXPasswordPanel_CredentialType_Text</string>
+			<string>TestB</string>
+			<string>JNXPasswordPanel_CredentialType_Text</string>
+			<string>TestC</string>
+			<string>JNXPasswordPanel_CredentialType_Text</string>
+			<string>TestD</string>
+			<string>JNXPasswordPanel_CredentialType_Text</string>
+			<string>A very Long PasswordType</string>
+			<string>JNXPasswordPanel_CredentialType_Text</string>
+		</array>
+	</dict>
+	<dict>
+		<key>JNXPasswordPanel_Credential_Protocol</key>
+		<string>Test</string>
+		<key>JNXPasswordPanel_Credential_Text</key>
+		<string>Another Test.</string>
+		<key>JNXPasswordPanel_Credential_Fields</key>
+		<array>
+			<string>TestA</string>
+			<string>JNXPasswordPanel_CredentialType_Text</string>
+			<string>TestB</string>
+			<string>JNXPasswordPanel_CredentialType_Password</string>
+			<string>TestF</string>
+			<string>JNXPasswordPanel_CredentialType_Text</string>
+		</array>
+	</dict>
+	<dict>
+		<key>JNXPasswordPanel_Credential_Protocol</key>
+		<string>Fasel</string>
+		<key>JNXPasswordPanel_Credential_Text</key>
+		<string>Lore ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat voluptat. Lore ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat voluptat.Lore ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat voluptat. Lore ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat voluptat.Lore ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat voluptat. This is
+a multiline
+text at
+the End.</string>
+	</dict>
+	<dict>
+		<key>sd</key>
+		<string>VNC</string>
+	</dict>
+</array>
+</plist>
