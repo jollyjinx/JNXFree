@@ -1,10 +1,15 @@
 This is my git submodule of free stuff I use to develop on the Mac, iPhone with Xcode.
 
-JNXPasswordPanel/ is a project on how to create a nice password panel with automatic access to the keychain from secondary threads. This is used for JollysFastVNC's password panel.
-
-
 Regards Jolly aka Patrick
 
 ---
 author of: ScreenRecycler, JollysFastVNC, SmartSleep, SmartSokoban and more.
+
+
+XcodeScripts/
+Contains the build scripts I use when building release versions of my software.
+
+
+JNXPasswordPanel/ 
+Is a project on how to create a nice password panel with automatic access to the keychain from secondary threads. This is used for JollysFastVNC's password panel.
 

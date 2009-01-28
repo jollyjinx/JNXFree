@@ -1,0 +1,7 @@
+
+<p>Version JNX_RELEASE_VERSION (JNX_RELEASE_REVISION) JNX_RELEASE_DATE<br/>
+	<p/>
+	<p/>
+	<ul>
+		<li>Fixed bonjour icon when host no longer announced.
+	</ul>
