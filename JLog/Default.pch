@@ -1,0 +1,44 @@
+// Creator: Patrick Stein aka jolly@jinx.de
+
+#ifndef DEBUG
+#define DEBUG 0
+#endif
+
+
+#ifndef JLog
+#define JLog(format, ...)					NSLog([NSString stringWithFormat:@"\t(%08x.%04d)%s %@",self,__LINE__,__FUNCTION__,format], ##__VA_ARGS__)
+
+#define DJLog		if(DEBUG)JLog
+#define D2JLog		if(DEBUG>1)JLog
+#define D3JLOG		if(DEBUG>2)JLog
+
+#define DJLOG		if(DEBUG)DJLog(@"");
+#define D2JLOG		if(DEBUG>1)DJLog(@"");
+
+#endif
+
+#ifdef DEBUGRETAIN
+#define DEBUGRETAINCYCLE	\
+- retain\
+{\
+	[super retain];\
+	JLog(@"%d",[self retainCount]);\
+	return self;\
+}\
+\
+- (void)release\
+{\
+	JLog(@"%d",[self retainCount]-1);\
+	[super release];\
+}\
+- autorelease\
+{\
+	[super autorelease];\
+	JLog(@"%d",[self retainCount]);\
+	return self;\
+}\
+
+#else
+#define DEBUGRETAINCYCLE
+#endif
+

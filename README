@@ -5,11 +5,14 @@ Regards Jolly aka Patrick
 ---
 author of: ScreenRecycler, JollysFastVNC, SmartSleep, SmartSokoban and more.
 
-
-XcodeScripts/
-Contains the build scripts I use when building release versions of my software.
+JLog/
+Contains the nice debug logging as well as retain/release cycle logging.
 
 
 JNXPasswordPanel/ 
 Is a project on how to create a nice password panel with automatic access to the keychain from secondary threads. This is used for JollysFastVNC's password panel.
+
+
+XcodeScripts/
+Contains the build scripts I use when building release versions of my software.
 
