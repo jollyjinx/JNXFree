@@ -510,7 +510,8 @@ enum {
 		if( noErr == (error = SecKeychainFindGenericPassword( NULL, strlen(processname), processname, strlen(itemname), itemname,  &keychainitemlength, &keychainitemdata,	&keychainItemRef)) )
 		{
 			if(		(keychainitemlength != strlen(passwordstring))
-				&&	(memcmp(keychainitemdata,passwordstring,keychainitemlength)) )
+				||	(NULL==keychainitemdata)
+				||	(memcmp(keychainitemdata,passwordstring,keychainitemlength)) )
 			{
 				if( noErr != (error = SecKeychainItemModifyAttributesAndData(keychainItemRef, NULL, strlen(passwordstring),passwordstring )) )
 				{
