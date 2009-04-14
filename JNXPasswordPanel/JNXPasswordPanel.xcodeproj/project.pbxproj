@@ -82,6 +82,8 @@
 		E0A42DD80F38A658006ECF9B /* Release.txt */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = text; path = Release.txt; sourceTree = "<group>"; };
 		E0A42DD90F38A658006ECF9B /* History.txt */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = text; path = History.txt; sourceTree = "<group>"; };
 		E0A42DDA0F38A658006ECF9B /* SparkleWrapper.xml */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = text.xml; path = SparkleWrapper.xml; sourceTree = "<group>"; };
+		E0A471E20F94C1CB000F311F /* JNXCrashReporter.h */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.h; path = JNXCrashReporter.h; sourceTree = "<group>"; };
+		E0A471E30F94C1CB000F311F /* JNXCrashReporter.m */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.objc; path = JNXCrashReporter.m; sourceTree = "<group>"; };
 		E0DC44A30F0B7E3D00A77240 /* JNXKeyChainPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXKeyChainPassword.h; sourceTree = "<group>"; };
 		E0DC44A40F0B7E3D00A77240 /* JNXKeyChainPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNXKeyChainPassword.m; sourceTree = "<group>"; };
 		E0DC45950F13AF4100A77240 /* NSString+PercentEscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PercentEscape.h"; sourceTree = "<group>"; };
@@ -106,6 +108,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E07C9A8E0F1518E500DDCA7F /* TestingClass.h */,
+				E07C9A8F0F1518E500DDCA7F /* TestingClass.m */,
 				E05F70E30F0A287500FCD7CC /* JNXPasswordPanel.h */,
 				E05F70E40F0A287500FCD7CC /* JNXPasswordPanel.m */,
 				E0DC44A30F0B7E3D00A77240 /* JNXKeyChainPassword.h */,
@@ -114,6 +118,8 @@
 				E0DC45960F13AF4100A77240 /* NSString+PercentEscape.m */,
 				E0DC459B0F13B19300A77240 /* NSDictionary+KeyValueStringEncoding.h */,
 				E0DC459C0F13B19300A77240 /* NSDictionary+KeyValueStringEncoding.m */,
+				E0A471E20F94C1CB000F311F /* JNXCrashReporter.h */,
+				E0A471E30F94C1CB000F311F /* JNXCrashReporter.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -163,8 +169,6 @@
 			children = (
 				32CA4F630368D1EE00C91783 /* JNXPasswordPanel_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
-				E07C9A8E0F1518E500DDCA7F /* TestingClass.h */,
-				E07C9A8F0F1518E500DDCA7F /* TestingClass.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";

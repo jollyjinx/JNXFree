@@ -9,11 +9,14 @@
 #import "TestingClass.h"
 
 #import "JNXPasswordPanel.h"
+#import "JNXCrashReporter.h"
 
 @implementation TestingClass
 
 - init
 {
+	[JNXCrashReporter testForCrashWithMailbodyString:@"Hello Jolly,\nPasswordPanel has crashed the last time I used it.\n Here are the results:\n"];
+
 	DJLOG
 	if( !(self=[super init]) )
 		return nil;

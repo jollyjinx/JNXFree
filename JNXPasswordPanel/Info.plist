@@ -26,5 +26,9 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>JNXCrashReporter.subject</key>
+	<string>PasswordTester Crashlog</string>
+	<key>JNXCrashReporter.mailto</key>
+	<string>jollysupport@googlemail.com</string>
 </dict>
 </plist>
