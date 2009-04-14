@@ -18,14 +18,14 @@
 
 + (void)testForCrashWithBodyString:(NSString *)mailbodyString
 {
+	DJLOG;
+	
 	NSDate	*lastReportedDate;
 	
 	if( nil == mailbodyString )
 	{
-		mailbodyString	= [NSString stringWithFormat:@"Hello Jolly,\n\n%@ crashed on me the last time while\nI was connecting my .... server.\nI was doing .... at the time.\n\nRegards %@\n\n\n\n\n\n\n\nCrashlog follows:\n",[[NSProcessInfo processInfo] processName],NSFullUserName()]
+		mailbodyString	= [NSString stringWithFormat:@"Hello Jolly,\n\n%@ crashed on me the last time while\nI was connecting my .... server.\nI was doing .... at the time.\n\nRegards %@\n\n\n\n\n\n\n\nCrashlog follows:\n",[[NSProcessInfo processInfo] processName],NSFullUserName()];
 	}
-	
-	DJLOG;
 	
 	if(		(![[[NSBundle  mainBundle] infoDictionary] objectForKey: JNX_CRASHREPORTER_MAILTOKEY])
 		||	(![[[NSBundle  mainBundle] infoDictionary] objectForKey: JNX_CRASHREPORTER_SUBJECTKEY]) )
