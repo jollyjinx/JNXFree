@@ -7,7 +7,7 @@
 //
 
 #import "JNXCrashReporter.h"
-
+#include <unistd.h>
 
 #define JNX_CRASHREPORTER_DEFAULTS_DATEKEY		@"JNXCrashReporter.lastCrashTestDate"
 #define JNX_CRASHREPORTER_DEFAULTS_VERSIONKEY	@"JNXCrashReporter.lastCrashVersion"
@@ -18,9 +18,29 @@
 
 + (void)testForCrashWithBodyString:(NSString *)mailbodyString
 {
-	DJLOG;
-	
+	#if !defined(NDEBUG) || (DEBUG >0)
+		#warning not compiling Crashreporter
+		return;
+	#endif
 	NSDate	*lastReportedDate;
+	NSString *logfileName			=  [[[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:@"Logs"] stringByAppendingPathComponent:[[[NSProcessInfo processInfo] processName] stringByAppendingPathExtension:@"log"]];
+	NSString *previousLogfileName	= [logfileName stringByAppendingPathExtension:@"1"];
+
+	[[NSFileManager defaultManager] removeFileAtPath:previousLogfileName handler:nil];
+	if( [[NSFileManager defaultManager] movePath:logfileName toPath:previousLogfileName handler:nil] )
+	{
+		int filenumber = open([logfileName fileSystemRepresentation],O_CREAT| O_APPEND|O_TRUNC| O_WRONLY, 0666);
+		if( filenumber >= 0 )
+		{
+			close(STDERR_FILENO);
+			dup2(filenumber, STDERR_FILENO);
+			close(filenumber);
+		}
+	}
+	else
+	{
+		JLog(@"Could not move logfile %@ %@",logfileName,previousLogfileName);
+	}
 	
 	if( nil == mailbodyString )
 	{
@@ -67,15 +87,16 @@
 		switch( alertreturn )
 		{
 			case NSAlertDefaultReturn	:
-			{			
-				NSString *mailString = [NSString stringWithFormat:@"mailto:%@?subject=%@ (%@ %@ %s %@)&body=%@\n%@"	,[[[NSBundle  mainBundle] infoDictionary] objectForKey: JNX_CRASHREPORTER_MAILTOKEY]
+			{
+				NSString *mailString = [NSString stringWithFormat:@"mailto:%@?subject=%@ (%@ %@ %s %@)&body=%@\n%@\nLogfilecontents:\n%@\n",[[[NSBundle  mainBundle] infoDictionary] objectForKey: JNX_CRASHREPORTER_MAILTOKEY]
 																											,[[[NSBundle  mainBundle] infoDictionary] objectForKey: JNX_CRASHREPORTER_SUBJECTKEY]
 																											,[[[NSBundle  mainBundle] infoDictionary] objectForKey: @"CFBundleShortVersionString"]
 																											,[[[NSBundle  mainBundle] infoDictionary] objectForKey: @"CFBundleVersion"]
 																											,((CFByteOrderBigEndian==CFByteOrderGetCurrent())?"PPC":"i386")
 																											,[[NSProcessInfo processInfo] operatingSystemVersionString]
 																											,mailbodyString
-																											,[NSString stringWithContentsOfFile:lastCrashReportFilename]];
+																											,[NSString stringWithContentsOfFile:lastCrashReportFilename]
+																											,[NSString stringWithContentsOfFile:previousLogfileName]];
 													
 				NSURL *url = [NSURL URLWithString:[(NSString*)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)mailString, NULL, NULL, kCFStringEncodingISOLatin1) autorelease]];
 				[[NSWorkspace sharedWorkspace] openURL:url];

@@ -13,7 +13,7 @@
 {
 
 }
-+ (void)testForCrashWithMailbodyString:(NSString*)mailbodyString;
++ (void)testForCrashWithBodyString:(NSString *)mailbodyString;
 + (NSString*) lastCrashReportFilename;
 
 @end
