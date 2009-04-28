@@ -12,8 +12,11 @@ Contains the nice debug logging as well as retain/release cycle logging.
 JNXPasswordPanel/ 
 Is a project on how to create a nice password panel with automatic access to the keychain from secondary threads. This is used for JollysFastVNC's password panel.
 
-It also shows the use of the versionnumbering and automated dmg build process.
-
+Showcase for:
+ - JNXPasswordPanel
+ - JNXCrashReporter
+ - automated versionnumbering 
+ - dmg build release process
 
 XcodeScripts/
 Contains the build scripts I use when building release versions of my software.
