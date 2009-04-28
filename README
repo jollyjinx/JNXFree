@@ -16,7 +16,8 @@ Showcase for:
  - JNXPasswordPanel
  - JNXCrashReporter
  - automated versionnumbering 
- - dmg build release process
+ - automated release notes and history
+ - automated dmg build release process
 
 XcodeScripts/
 Contains the build scripts I use when building release versions of my software.
