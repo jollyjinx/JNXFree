@@ -4,5 +4,12 @@
 </head>
 <body>
 
+<p>Version 0.3 (912001) Thu Apr 30 13:19:22 CEST 2009<br/>
+	<p/>
+	<p/>
+	<ul>
+		<li>First version to show how the dmg build stuff works.
+	</ul>
+
 </body>
 </html>

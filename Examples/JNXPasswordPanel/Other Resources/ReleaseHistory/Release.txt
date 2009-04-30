@@ -3,5 +3,5 @@
 	<p/>
 	<p/>
 	<ul>
-		<li>First version to show how the dmg build stuff works.
+		<li>Second version to show how the dmg build stuff works.
 	</ul>
