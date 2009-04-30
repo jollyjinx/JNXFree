@@ -15,7 +15,7 @@
 
 - init
 {
-	[JNXCrashReporter testForCrashWithMailbodyString:@"Hello Jolly,\nPasswordPanel has crashed the last time I used it.\n Here are the results:\n"];
+	[JNXCrashReporter testForCrashWithBodyString:@"Hello Jolly,\nPasswordPanel has crashed the last time I used it.\n Here are the results:\n"];
 
 	DJLOG
 	if( !(self=[super init]) )
