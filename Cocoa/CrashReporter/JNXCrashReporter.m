@@ -19,7 +19,7 @@
 + (void)testForCrashWithBodyString:(NSString *)mailbodyString
 {
 	#if !defined(NDEBUG) || (DEBUG >0)
-		#warning not compiling Crashreporter
+		#warning not using Crashreporter in debug compiles 
 		return;
 	#endif
 	NSDate	*lastReportedDate;

@@ -1,10 +1,11 @@
+/* MTQueue.h created by jolly on Sat Fri 01-Mar-1996 */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 #include <pthread.h>
 
 #define MTQUEUE_END_OBJECT	@"MTQueueEndObjectString"
 
-@interface MTQueue : NSObject
+@interface JNXMTQueue : NSObject
 {
     NSMutableArray		*queueArray;
 	uint32_t			arraycounter;

@@ -27,14 +27,15 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		E055FE530F1530AD007C8E6A /* TestPanel1.plist in Resources */ = {isa = PBXBuildFile; fileRef = E055FE520F1530AD007C8E6A /* TestPanel1.plist */; };
-		E05F70E50F0A287500FCD7CC /* JNXPasswordPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = E05F70E40F0A287500FCD7CC /* JNXPasswordPanel.m */; };
 		E07C99E20F14F73D00DDCA7F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E07C99E10F14F73D00DDCA7F /* Security.framework */; };
 		E07C9A720F150BE900DDCA7F /* JNXPasswordPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = E07C9A710F150BE900DDCA7F /* JNXPasswordPanel.xib */; };
 		E07C9A900F1518E500DDCA7F /* TestingClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E07C9A8F0F1518E500DDCA7F /* TestingClass.m */; };
 		E0A42DDD0F38A7B0006ECF9B /* README.rtf in CopyFiles */ = {isa = PBXBuildFile; fileRef = E0A42DD60F38A658006ECF9B /* README.rtf */; };
-		E0DC44A50F0B7E3D00A77240 /* JNXKeyChainPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = E0DC44A40F0B7E3D00A77240 /* JNXKeyChainPassword.m */; };
-		E0DC45970F13AF4100A77240 /* NSString+PercentEscape.m in Sources */ = {isa = PBXBuildFile; fileRef = E0DC45960F13AF4100A77240 /* NSString+PercentEscape.m */; };
-		E0DC459D0F13B19300A77240 /* NSDictionary+KeyValueStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E0DC459C0F13B19300A77240 /* NSDictionary+KeyValueStringEncoding.m */; };
+		E0A58BAB0FA9B74B002DEDB4 /* JNXKeyChainPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = E0A58BA40FA9B74B002DEDB4 /* JNXKeyChainPassword.m */; };
+		E0A58BAC0FA9B74B002DEDB4 /* JNXPasswordPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0A58BA60FA9B74B002DEDB4 /* JNXPasswordPanel.m */; };
+		E0A58BAD0FA9B74B002DEDB4 /* NSDictionary+KeyValueStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E0A58BA80FA9B74B002DEDB4 /* NSDictionary+KeyValueStringEncoding.m */; };
+		E0A58BAE0FA9B74B002DEDB4 /* NSString+PercentEscape.m in Sources */ = {isa = PBXBuildFile; fileRef = E0A58BAA0FA9B74B002DEDB4 /* NSString+PercentEscape.m */; };
+		E0A58BB50FA9B77C002DEDB4 /* JNXCrashReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = E0A58BB30FA9B77C002DEDB4 /* JNXCrashReporter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +73,6 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* JNXPasswordPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JNXPasswordPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E055FE520F1530AD007C8E6A /* TestPanel1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestPanel1.plist; sourceTree = "<group>"; };
-		E05F70E30F0A287500FCD7CC /* JNXPasswordPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXPasswordPanel.h; sourceTree = "<group>"; };
-		E05F70E40F0A287500FCD7CC /* JNXPasswordPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNXPasswordPanel.m; sourceTree = "<group>"; };
 		E07C99E10F14F73D00DDCA7F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		E07C9A710F150BE900DDCA7F /* JNXPasswordPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JNXPasswordPanel.xib; sourceTree = "<group>"; };
 		E07C9A8E0F1518E500DDCA7F /* TestingClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingClass.h; sourceTree = "<group>"; };
@@ -82,14 +81,16 @@
 		E0A42DD80F38A658006ECF9B /* Release.txt */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = text; path = Release.txt; sourceTree = "<group>"; };
 		E0A42DD90F38A658006ECF9B /* History.txt */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = text; path = History.txt; sourceTree = "<group>"; };
 		E0A42DDA0F38A658006ECF9B /* SparkleWrapper.xml */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = text.xml; path = SparkleWrapper.xml; sourceTree = "<group>"; };
-		E0A471E20F94C1CB000F311F /* JNXCrashReporter.h */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.h; path = JNXCrashReporter.h; sourceTree = "<group>"; };
-		E0A471E30F94C1CB000F311F /* JNXCrashReporter.m */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.objc; path = JNXCrashReporter.m; sourceTree = "<group>"; };
-		E0DC44A30F0B7E3D00A77240 /* JNXKeyChainPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXKeyChainPassword.h; sourceTree = "<group>"; };
-		E0DC44A40F0B7E3D00A77240 /* JNXKeyChainPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNXKeyChainPassword.m; sourceTree = "<group>"; };
-		E0DC45950F13AF4100A77240 /* NSString+PercentEscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PercentEscape.h"; sourceTree = "<group>"; };
-		E0DC45960F13AF4100A77240 /* NSString+PercentEscape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PercentEscape.m"; sourceTree = "<group>"; };
-		E0DC459B0F13B19300A77240 /* NSDictionary+KeyValueStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+KeyValueStringEncoding.h"; sourceTree = "<group>"; };
-		E0DC459C0F13B19300A77240 /* NSDictionary+KeyValueStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+KeyValueStringEncoding.m"; sourceTree = "<group>"; };
+		E0A58BA30FA9B74B002DEDB4 /* JNXKeyChainPassword.h */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.h; path = JNXKeyChainPassword.h; sourceTree = "<group>"; };
+		E0A58BA40FA9B74B002DEDB4 /* JNXKeyChainPassword.m */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.objc; path = JNXKeyChainPassword.m; sourceTree = "<group>"; };
+		E0A58BA50FA9B74B002DEDB4 /* JNXPasswordPanel.h */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.h; path = JNXPasswordPanel.h; sourceTree = "<group>"; };
+		E0A58BA60FA9B74B002DEDB4 /* JNXPasswordPanel.m */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.objc; path = JNXPasswordPanel.m; sourceTree = "<group>"; };
+		E0A58BA70FA9B74B002DEDB4 /* NSDictionary+KeyValueStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+KeyValueStringEncoding.h"; sourceTree = "<group>"; };
+		E0A58BA80FA9B74B002DEDB4 /* NSDictionary+KeyValueStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+KeyValueStringEncoding.m"; sourceTree = "<group>"; };
+		E0A58BA90FA9B74B002DEDB4 /* NSString+PercentEscape.h */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.h; path = "NSString+PercentEscape.h"; sourceTree = "<group>"; };
+		E0A58BAA0FA9B74B002DEDB4 /* NSString+PercentEscape.m */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.objc; path = "NSString+PercentEscape.m"; sourceTree = "<group>"; };
+		E0A58BB20FA9B77C002DEDB4 /* JNXCrashReporter.h */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.h; path = JNXCrashReporter.h; sourceTree = "<group>"; };
+		E0A58BB30FA9B77C002DEDB4 /* JNXCrashReporter.m */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.c.objc; path = JNXCrashReporter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,16 +111,8 @@
 			children = (
 				E07C9A8E0F1518E500DDCA7F /* TestingClass.h */,
 				E07C9A8F0F1518E500DDCA7F /* TestingClass.m */,
-				E05F70E30F0A287500FCD7CC /* JNXPasswordPanel.h */,
-				E05F70E40F0A287500FCD7CC /* JNXPasswordPanel.m */,
-				E0DC44A30F0B7E3D00A77240 /* JNXKeyChainPassword.h */,
-				E0DC44A40F0B7E3D00A77240 /* JNXKeyChainPassword.m */,
-				E0DC45950F13AF4100A77240 /* NSString+PercentEscape.h */,
-				E0DC45960F13AF4100A77240 /* NSString+PercentEscape.m */,
-				E0DC459B0F13B19300A77240 /* NSDictionary+KeyValueStringEncoding.h */,
-				E0DC459C0F13B19300A77240 /* NSDictionary+KeyValueStringEncoding.m */,
-				E0A471E20F94C1CB000F311F /* JNXCrashReporter.h */,
-				E0A471E30F94C1CB000F311F /* JNXCrashReporter.m */,
+				E0A58BB00FA9B77C002DEDB4 /* CrashReporter */,
+				E0A58BA20FA9B74B002DEDB4 /* PasswordPanel */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -214,6 +207,32 @@
 			path = "Other Resources/ReleaseHistory";
 			sourceTree = "<group>";
 		};
+		E0A58BA20FA9B74B002DEDB4 /* PasswordPanel */ = {
+			isa = PBXGroup;
+			children = (
+				E0A58BA30FA9B74B002DEDB4 /* JNXKeyChainPassword.h */,
+				E0A58BA40FA9B74B002DEDB4 /* JNXKeyChainPassword.m */,
+				E0A58BA50FA9B74B002DEDB4 /* JNXPasswordPanel.h */,
+				E0A58BA60FA9B74B002DEDB4 /* JNXPasswordPanel.m */,
+				E0A58BA70FA9B74B002DEDB4 /* NSDictionary+KeyValueStringEncoding.h */,
+				E0A58BA80FA9B74B002DEDB4 /* NSDictionary+KeyValueStringEncoding.m */,
+				E0A58BA90FA9B74B002DEDB4 /* NSString+PercentEscape.h */,
+				E0A58BAA0FA9B74B002DEDB4 /* NSString+PercentEscape.m */,
+			);
+			name = PasswordPanel;
+			path = ../../Cocoa/PasswordPanel;
+			sourceTree = SOURCE_ROOT;
+		};
+		E0A58BB00FA9B77C002DEDB4 /* CrashReporter */ = {
+			isa = PBXGroup;
+			children = (
+				E0A58BB20FA9B77C002DEDB4 /* JNXCrashReporter.h */,
+				E0A58BB30FA9B77C002DEDB4 /* JNXCrashReporter.m */,
+			);
+			name = CrashReporter;
+			path = ../../Cocoa/CrashReporter;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -306,11 +325,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				E05F70E50F0A287500FCD7CC /* JNXPasswordPanel.m in Sources */,
-				E0DC44A50F0B7E3D00A77240 /* JNXKeyChainPassword.m in Sources */,
-				E0DC45970F13AF4100A77240 /* NSString+PercentEscape.m in Sources */,
-				E0DC459D0F13B19300A77240 /* NSDictionary+KeyValueStringEncoding.m in Sources */,
 				E07C9A900F1518E500DDCA7F /* TestingClass.m in Sources */,
+				E0A58BAB0FA9B74B002DEDB4 /* JNXKeyChainPassword.m in Sources */,
+				E0A58BAC0FA9B74B002DEDB4 /* JNXPasswordPanel.m in Sources */,
+				E0A58BAD0FA9B74B002DEDB4 /* NSDictionary+KeyValueStringEncoding.m in Sources */,
+				E0A58BAE0FA9B74B002DEDB4 /* NSString+PercentEscape.m in Sources */,
+				E0A58BB50FA9B77C002DEDB4 /* JNXCrashReporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

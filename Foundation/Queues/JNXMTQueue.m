@@ -1,7 +1,7 @@
 
-#import "MTQueue.h"
+#import "JNXMTQueue.h"
 
-@implementation MTQueue
+@implementation JNXMTQueue
 
 DEBUGRETAINCYCLE
 
