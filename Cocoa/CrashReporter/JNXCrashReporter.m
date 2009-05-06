@@ -27,19 +27,21 @@
 	NSString *previousLogfileName	= [logfileName stringByAppendingPathExtension:@"1"];
 
 	[[NSFileManager defaultManager] removeFileAtPath:previousLogfileName handler:nil];
-	if( [[NSFileManager defaultManager] movePath:logfileName toPath:previousLogfileName handler:nil] )
+	if( ! [[NSFileManager defaultManager] movePath:logfileName toPath:previousLogfileName handler:nil] )
 	{
-		int filenumber = open([logfileName fileSystemRepresentation],O_CREAT| O_APPEND|O_TRUNC| O_WRONLY, 0666);
-		if( filenumber >= 0 )
-		{
-			close(STDERR_FILENO);
-			dup2(filenumber, STDERR_FILENO);
-			close(filenumber);
-		}
+		JLog(@"Could not move logfile %@ %@",logfileName,previousLogfileName);
+	}
+	
+	int filenumber = open([logfileName fileSystemRepresentation],O_CREAT| O_APPEND|O_TRUNC| O_WRONLY, 0666);
+	if( filenumber >= 0 )
+	{
+		close(STDERR_FILENO);
+		dup2(filenumber, STDERR_FILENO);
+		close(filenumber);
 	}
 	else
 	{
-		JLog(@"Could not move logfile %@ %@",logfileName,previousLogfileName);
+		JLog(@"Could not open logfile %@",logfileName);
 	}
 	
 	if( nil == mailbodyString )
