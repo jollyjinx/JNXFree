@@ -28,6 +28,10 @@ Foundation/
 
                 AdvancedDatedQueue: uses a RedBlack tree you can add/remove stuff while waiting.
 
+	RedBlackTree:	My implementation of a RedBlackTree. A RedBlack tree has search, insert, and delete in O(log n) time.
+	SortedArray:	A sorted array. You can set it to reevalute the array in case objects change their sorting criterium.
+
+
 Cocoa/
     CrashReporter:  Contains a Crashreporter that mails you the crashreport as well as the logfile.
             see Examples/PasswordPanel
