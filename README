@@ -39,6 +39,8 @@ Cocoa/
     PasswordPanel:  Generates Passwordpanels with dynamic entries that are stored/retrieved from the keychain.
             see Examples/PasswordPanel
 
+System/
+	osversion:		simple c-function to return 0x  MAJORVERSION MINORVERSION PATCHLEVEL 0x100506 == 10.5.6
 
 Examples/
     JNXPasswordPanel/ 
