@@ -12,8 +12,10 @@ author of: ScreenRecycler, JollysFastVNC, SmartSleep, SmartSokoban and more.
 Directory Layout
 ============================================================
 
-JLog/
-                Contains .pch file I include in all projects now. Debug logging as well as retain/release cycle logging.
+JLog/           Contains .pch file I include in all projects now. Debug logging as well as retain/release cycle logging.
+
+Categories/ Categories I use - currently only contains one but I will add a few more over time
+        NSThread_LeopardAdditions:  (BOOL)[NSThread  isMainThread] for Tiger/Leopard compiles.
 
 Foundation/
     Queues  :   Contains different mulithreaded Queues i use
@@ -28,8 +30,8 @@ Foundation/
 
                 AdvancedDatedQueue: uses a RedBlack tree you can add/remove stuff while waiting.
 
-	RedBlackTree:	My implementation of a RedBlackTree. A RedBlack tree has search, insert, and delete in O(log n) time.
-	SortedArray:	A sorted array. You can set it to reevalute the array in case objects change their sorting criterium.
+    RedBlackTree:   My implementation of a RedBlackTree. A RedBlack tree has search, insert, and delete in O(log n) time.
+    SortedArray:    A sorted array. You can set it to reevalute the array in case objects change their sorting criterium.
 
 
 Cocoa/
@@ -40,7 +42,7 @@ Cocoa/
             see Examples/PasswordPanel
 
 System/
-	osversion:		simple c-function to return 0x  MAJORVERSION MINORVERSION PATCHLEVEL 0x100506 == 10.5.6
+    osversion:      simple c-function to return 0x  MAJORVERSION MINORVERSION PATCHLEVEL 0x100506 == 10.5.6
 
 Examples/
     JNXPasswordPanel/ 
