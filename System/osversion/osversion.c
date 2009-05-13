@@ -14,11 +14,11 @@
 
 int osversion(void)
 {
-	static int	osversion = -1;
+	static int	currentosversion = -1;
 	
-	if( -1 != osversion )
+	if( -1 != currentosversion )
 	{
-		return osversion;
+		return currentosversion;
 	}
 
 	char	osname[255];
@@ -45,15 +45,15 @@ int osversion(void)
 			if( osversionminor	> 0xFF )	osversionminor	= 0xFF;
 			if( patchlevel		> 0xFF )	patchlevel		= 0xFF;
 			
-			osversion = (osversionmajor << 16 ) + (osversionminor << 8) +	patchlevel;
+			currentosversion = (osversionmajor << 16 ) + (osversionminor << 8) +	patchlevel;
 		}
 	}
-	if( -1 == osversion ) 
+	if( -1 == currentosversion ) 
 	{
-		fprintf(stderr,"Unknown system version:%d\n",osversion);
+		fprintf(stderr,"Unknown system version:%d\n",currentosversion);
 	}
 	#if DEBUG
-		fprintf(stderr,"osversion() :%x\n",osversion);
+		fprintf(stderr,"osversion() :%x\n",currentosversion);
 	#endif
-	return osversion;
+	return currentosversion;
 }
