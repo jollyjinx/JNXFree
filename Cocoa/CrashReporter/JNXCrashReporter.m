@@ -13,6 +13,7 @@
 #define JNX_CRASHREPORTER_DEFAULTS_VERSIONKEY	@"JNXCrashReporter.lastCrashVersion"
 #define JNX_CRASHREPORTER_SUBJECTKEY			@"JNXCrashReporter.subject"
 #define JNX_CRASHREPORTER_MAILTOKEY				@"JNXCrashReporter.mailto"
+#define JNX_CRASHREPORTER_BODYTEXT				@"Please describe the circumstances leading to the crash and any other relevant information:\n\n\n\n\n\n\nCrashlog follows:\n"
 
 @implementation JNXCrashReporter
 
@@ -46,7 +47,7 @@
 	
 	if( nil == mailbodyString )
 	{
-		mailbodyString	= [NSString stringWithFormat:@"Hello Jolly,\n\n%@ crashed on me the last time while\nI was connecting my .... server.\nI was doing .... at the time.\n\nRegards %@\n\n\n\n\n\n\n\nCrashlog follows:\n",[[NSProcessInfo processInfo] processName],NSFullUserName()];
+		mailbodyString	= JNX_CRASHREPORTER_BODYTEXT;
 	}
 	
 	if(		(![[[NSBundle  mainBundle] infoDictionary] objectForKey: JNX_CRASHREPORTER_MAILTOKEY])
@@ -62,9 +63,12 @@
 		
 		[[NSUserDefaults standardUserDefaults] setObject:[[[NSBundle  mainBundle] infoDictionary] objectForKey: @"CFBundleVersion"] forKey: JNX_CRASHREPORTER_DEFAULTS_VERSIONKEY];
 		[[NSUserDefaults standardUserDefaults] setObject: [NSDate date] forKey: JNX_CRASHREPORTER_DEFAULTS_DATEKEY];
+		if( ! [[NSUserDefaults standardUserDefaults] synchronize] )
+		{
+			JLog(@"Could not syncronize defaults.");
+		}
 		return;
 	}
-	
 	
 	
 	if( nil == (lastReportedDate = [[NSUserDefaults standardUserDefaults] objectForKey: JNX_CRASHREPORTER_DEFAULTS_DATEKEY]) )
@@ -105,6 +109,10 @@
 			};break;
 		}
 		[[NSUserDefaults standardUserDefaults] setObject: [NSDate date] forKey: JNX_CRASHREPORTER_DEFAULTS_DATEKEY];
+	}
+	if( ! [[NSUserDefaults standardUserDefaults] synchronize] )
+	{
+		JLog(@"Could not syncronize defaults.");
 	}
 }
 
