@@ -16,6 +16,7 @@ JLog/           Contains .pch file I include in all projects now. Debug logging 
 
 Categories/ Categories I use - currently only contains one but I will add a few more over time
         NSThread_LeopardAdditions:  (BOOL)[NSThread  isMainThread] for Tiger/Leopard compiles.
+	NSData+ZlibAddition:	 zlib un/compression routines for NSData
 
 Foundation/
     Queues  :   Contains different mulithreaded Queues i use
