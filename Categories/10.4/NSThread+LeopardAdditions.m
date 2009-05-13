@@ -6,7 +6,7 @@
 //  Copyright 2009 Jinx.de. All rights reserved.
 //
 
-#if    MAC_OS_X_VERSION_MIN_REQUIRED <= MAC_OS_X_VERSION_10_5
+#if    MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_5
 
 #import "NSThread+LeopardAdditions.h"
 #import <pthread.h>
