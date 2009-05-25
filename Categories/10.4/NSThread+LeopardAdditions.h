@@ -7,15 +7,11 @@
 //
 
 
-#if    MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_5
-
 #import <Cocoa/Cocoa.h>
 
 
 @interface NSThread(NSThread_LeopardAdditions)
 
-+ (BOOL)isMainThread;
++ (BOOL)jnxIsMainThread;
 
 @end
-
-#endif
