@@ -17,6 +17,15 @@
 
 @implementation JNXCrashReporter
 
++ (NSString *)logFileName
+{
+	#if !defined(NDEBUG) || (DEBUG >0)
+		#warning not using Crashreporter in debug compiles 
+		return nil;
+	#endif
+	return [[[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:@"Logs"] stringByAppendingPathComponent:[[[NSProcessInfo processInfo] processName] stringByAppendingPathExtension:@"log"]];
+}
+
 + (void)testForCrashWithBodyString:(NSString *)mailbodyString
 {
 	#if !defined(NDEBUG) || (DEBUG >0)
@@ -24,7 +33,7 @@
 		return;
 	#endif
 	NSDate	*lastReportedDate;
-	NSString *logfileName			=  [[[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:@"Logs"] stringByAppendingPathComponent:[[[NSProcessInfo processInfo] processName] stringByAppendingPathExtension:@"log"]];
+	NSString *logfileName			= [self logFileName] ;
 	NSString *previousLogfileName	= [logfileName stringByAppendingPathExtension:@"1"];
 
 	[[NSFileManager defaultManager] removeFileAtPath:previousLogfileName handler:nil];

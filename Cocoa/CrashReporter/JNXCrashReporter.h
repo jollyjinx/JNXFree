@@ -13,6 +13,7 @@
 {
 
 }
++ (NSString *)logFileName;
 + (void)testForCrashWithBodyString:(NSString *)mailbodyString;
 + (NSString*) lastCrashReportFilename;
 
