@@ -129,39 +129,40 @@
 
 + (NSString*) lastCrashReportFilename
 {
-	DJLOG;
+	JLog(@"");
 		
 	NSString				*crashlogFilename		= nil;
 	NSDate					*crashlogDate			= [NSDate distantPast];
 	
-	NSString				*crashlogPathname		= [[[NSHomeDirectory() stringByAppendingPathComponent: @"Library"] stringByAppendingPathComponent: @"Logs"] stringByAppendingPathComponent:@"CrashReporter"];
-	NSDirectoryEnumerator	*directoryEnumerator	= [[NSFileManager defaultManager]  enumeratorAtPath:crashlogPathname];
+	NSString				*crashlogPathname				= [[NSHomeDirectory() stringByAppendingPathComponent: @"Library"] stringByAppendingPathComponent: @"Logs"];
+	NSDirectoryEnumerator	*crashLogDirectoryEnumerator	= [[NSFileManager defaultManager]  enumeratorAtPath:crashlogPathname];
 	
 	NSString				*intermediateCrashlogFilename;
 	
-	while( intermediateCrashlogFilename = [directoryEnumerator nextObject] ) 
+	while( intermediateCrashlogFilename = [crashLogDirectoryEnumerator nextObject] )
 	{
-		NSDictionary	*fileAttributes = [directoryEnumerator fileAttributes];
-		
-		//DJLog(@"testing: %@",intermediateCrashlogFilename);
-		
-		if( NSFileTypeDirectory == [fileAttributes objectForKey:NSFileType] )
+		if( ![[intermediateCrashlogFilename pathExtension] isEqualToString:@"crash"] )
 		{
-			[directoryEnumerator skipDescendents];
 			continue;
 		}
-		
-		if(		[intermediateCrashlogFilename hasPrefix:[NSString stringWithFormat:@"%@_",[[NSProcessInfo processInfo] processName]]]
-			&&	[[intermediateCrashlogFilename pathExtension] isEqualToString:@"crash"]
-			&&	(NSOrderedAscending == [(NSDate *)crashlogDate compare:[fileAttributes objectForKey:NSFileModificationDate]] ) )
-		{
-			//DJLog(@"Found newer crashlog: %@",intermediateCrashlogFilename);
-			
-			crashlogFilename	= intermediateCrashlogFilename;
-			crashlogDate		= [fileAttributes objectForKey:NSFileModificationDate];
-		}
-    }
+	
+		NSDictionary	*fileAttributes = [crashLogDirectoryEnumerator fileAttributes];
 
+		if( NSFileTypeRegular == [[crashLogDirectoryEnumerator fileAttributes] objectForKey:NSFileType] )
+		{
+			NSString *currentFileName =  [intermediateCrashlogFilename lastPathComponent];
+			JLog(@"testing: %@ %@",currentFileName,intermediateCrashlogFilename);
+		
+			if(		[currentFileName hasPrefix:[NSString stringWithFormat:@"%@_",[[NSProcessInfo processInfo] processName]]]
+				&&	(NSOrderedAscending == [(NSDate *)crashlogDate compare:[fileAttributes objectForKey:NSFileModificationDate]] ) )
+			{
+				//DJLog(@"Found newer crashlog: %@",intermediateCrashlogFilename);
+				
+				crashlogFilename	= intermediateCrashlogFilename;
+				crashlogDate		= [fileAttributes objectForKey:NSFileModificationDate];
+			}
+		}
+	}
 	if( ! crashlogFilename )
 	{
 		//DJLog(@"Did not find crashlog");
