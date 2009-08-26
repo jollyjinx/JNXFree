@@ -129,8 +129,8 @@
 
 + (NSString*) lastCrashReportFilename
 {
-	JLog(@"");
-		
+	DJLOG
+	
 	NSString				*crashlogFilename		= nil;
 	NSDate					*crashlogDate			= [NSDate distantPast];
 	
@@ -151,7 +151,7 @@
 		if( NSFileTypeRegular == [[crashLogDirectoryEnumerator fileAttributes] objectForKey:NSFileType] )
 		{
 			NSString *currentFileName =  [intermediateCrashlogFilename lastPathComponent];
-			JLog(@"testing: %@ %@",currentFileName,intermediateCrashlogFilename);
+			DJLog(@"testing: %@",intermediateCrashlogFilename);
 		
 			if(		[currentFileName hasPrefix:[NSString stringWithFormat:@"%@_",[[NSProcessInfo processInfo] processName]]]
 				&&	(NSOrderedAscending == [(NSDate *)crashlogDate compare:[fileAttributes objectForKey:NSFileModificationDate]] ) )
