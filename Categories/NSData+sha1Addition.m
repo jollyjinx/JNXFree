@@ -9,8 +9,7 @@
 #import "NSData+sha1Addition.h"
 #include <openssl/sha.h>
 
-        unsigned char *SHA1(const unsigned char *d, unsigned long n,
-                         unsigned char *md);
+unsigned char *SHA1(const unsigned char *d, unsigned long n, unsigned char *md);
 
 
 @implementation NSData (sha1Addition)

@@ -12,86 +12,102 @@
 @implementation NSData (ZlibAddition)
 - (NSData *)	compressWithLevel:(int)level
 {
-		if( ![self length] )
-			return nil;
-		
-		z_stream				zstream;
-		
-		zstream.total_in	= 0;
-		zstream.total_out	= 0;
-		zstream.zalloc		= Z_NULL;
-		zstream.zfree		= Z_NULL;
-		zstream.opaque		= Z_NULL;
+	if( [self length] < 1)
+		return nil;
 
-		deflateInit2( &zstream,	level, Z_DEFLATED, MAX_WBITS, MAX_MEM_LEVEL, Z_DEFAULT_STRATEGY );	
-		
-		NSMutableData *outputData	=	[NSMutableData dataWithLength:[self length]];
-		
-		zstream.total_out	= 0;
-			
-		zstream.next_in		= ( Bytef * )[self bytes];
-		zstream.avail_in	= [self length];
-		zstream.next_out	= ( Bytef * )[outputData bytes];
-		zstream.avail_out	= [outputData length];
-		zstream.data_type	= Z_BINARY;
+	z_stream				zstream;
 
-		if( Z_OK != deflate( &zstream, Z_SYNC_FLUSH ) )
-		{
-			JLog(@"Zlib deflate error");
-			return nil;
-		}
+	zstream.total_in	= 0;
+	zstream.total_out	= 0;
+	zstream.zalloc		= Z_NULL;
+	zstream.zfree		= Z_NULL;
+	zstream.opaque		= Z_NULL;
+
+	deflateInit2( &zstream,	level, Z_DEFLATED, MAX_WBITS, MAX_MEM_LEVEL, Z_DEFAULT_STRATEGY );	
+
+	NSMutableData *outputData	=	[NSMutableData dataWithLength:[self length]];
+
+	zstream.total_out	= 0;
 		
-		[outputData setLength:zstream.total_out];
-		
-		return outputData;
+	zstream.next_in		= ( Bytef * )[self bytes];
+	zstream.avail_in	= [self length];
+	zstream.next_out	= ( Bytef * )[outputData bytes];
+	zstream.avail_out	= [outputData length];
+	zstream.data_type	= Z_BINARY;
+
+	if( Z_OK != deflate( &zstream, Z_SYNC_FLUSH ) )
+	{
+		JLog(@"Zlib deflate error");
+		return nil;
+	}
+
+	[outputData setLength:zstream.total_out];
+
+	return outputData;
 }
-
-
-
 
 
 - (NSData *)	uncompress;
 {
-		if( ![self length] )
-			return nil;
-		
-		z_stream				zstream;
-		
-		zstream.next_in		= Z_NULL;
-		zstream.avail_in	= Z_NULL;
-		zstream.total_in	= 0;
-		zstream.total_out	= 0;
-		zstream.zalloc		= Z_NULL;
-		zstream.zfree		= Z_NULL;
-		zstream.opaque		= Z_NULL;
+	if( [self length] < 1)
+		return nil;
+	
+	z_stream	zstream;
+	
+	zstream.next_in		= Z_NULL;
+	zstream.avail_in	= Z_NULL;
+	zstream.total_in	= 0;
+	zstream.total_out	= 0;
+	zstream.zalloc		= Z_NULL;
+	zstream.zfree		= Z_NULL;
+	zstream.opaque		= Z_NULL;
 
-		if(  Z_OK != inflateInit( &zstream) )
+	if(  Z_OK != inflateInit( &zstream) )
+	{
+		JLog(@"Error initializing Zlib");
+		return nil;
+	}
+	
+	unsigned int	originallength		= [self length]; 
+	unsigned int	goodsizelength		= 1024*(originallength+1023/1024);
+	
+	void			*uncompresseddata	= malloc(originallength+goodsizelength);
+	unsigned int	uncompressedspace	= originallength+goodsizelength;
+	
+	zstream.total_out	= 0;
+	zstream.next_in		= ( Bytef * )[self bytes];
+	zstream.avail_in	= [self length];
+	zstream.next_out	= ( Bytef * )uncompresseddata;
+	zstream.avail_out	= uncompressedspace;
+	zstream.data_type	= Z_BINARY;
+	
+	while( Z_OK == inflate( &zstream, Z_SYNC_FLUSH ) )
+	{
+		if( zstream.total_out >= uncompressedspace )
 		{
-			JLog(@"Error initializing Zlib");
-			return nil;
+			uncompressedspace	+= goodsizelength;
+			if( NULL == (uncompresseddata = reallocf(uncompresseddata, uncompressedspace)) )
+			{
+				JLog(@"Can't realloc for uncompressing data.");
+				return nil;
+			}
 		}
-		
-		NSMutableData *outputData	=	[NSMutableData dataWithLength:[self length]*10];
-		
-		zstream.total_out	= 0;
-			
-		zstream.next_in		= ( Bytef * )[self bytes];
-		zstream.avail_in	= [self length];
-		zstream.next_out	= ( Bytef * )[outputData bytes];
-		zstream.avail_out	= [outputData length];
-		zstream.data_type	= Z_BINARY;
+		zstream.next_out	= uncompresseddata	+ zstream.total_out;
+		zstream.avail_out	= uncompressedspace	- zstream.total_out;
+	}
+	
+	if( Z_OK != inflateEnd( &zstream) )
+	{
+		JLog(@"Zlib inflate error %d",zstream.total_out);
+		return nil;
+	}
+	
+	NSData	*outputData	= [NSData dataWithBytes:uncompresseddata length:zstream.total_out];
 
-		if( Z_STREAM_END != inflate( &zstream, Z_SYNC_FLUSH ) )
-		{
-			JLog(@"Zlib inflate error %d",zstream.total_out);
-			return nil;
-		}
-		
-		[outputData setLength:zstream.total_out];
-		
-		return outputData;
+	free(uncompresseddata);
+	
+	return outputData;
 }
-
 
 @end
 
