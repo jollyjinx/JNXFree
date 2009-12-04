@@ -68,7 +68,7 @@
 		[completeData appendData:[NSData dataWithBytesNoCopy:(unsigned char *)[encryptedData bytes] length:length freeWhenDone:NO]];
 		currentposition += encryptedpadding;
 	}
-	DNSLog(@"Encryption end:%@",[completeData description]);
+	DJLog(@"encrypted Data:%@",[completeData description]);
 	return (NSData *)completeData;
 }
 

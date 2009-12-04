@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <openssl/pem.h>			// defines NID_ripemd160 and NID_sha1
 
 @interface NSData (RSAAddition)
 

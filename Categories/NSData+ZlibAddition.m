@@ -7,6 +7,7 @@
 //
 
 #import "NSData+ZlibAddition.h"
+#import <zlib.h>
 
 
 @implementation NSData (ZlibAddition)
