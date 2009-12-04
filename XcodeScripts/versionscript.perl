@@ -26,7 +26,7 @@ my $commitdate;	 		# something like
 	{
 		my ($gitshortrevision,$gitseconds,$gitshortdate)	= split(/\s/, `git log -1 --pretty='format:%h %ct %cd' --date=short .` );
 
-		
+		$gitshortdate .= 'T00:00:00';
 		my $gitcountofday	= `git log --since="$gitshortdate" --pretty=oneline . |wc -l`;
 		chomp $gitcountofday;
 
