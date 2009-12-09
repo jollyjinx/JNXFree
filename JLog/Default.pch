@@ -7,11 +7,11 @@
 
 
 #ifndef JLog
-	#define JLine(format, ...)			([NSString stringWithFormat:[NSString stringWithFormat:@"\t(%08x.%04d)%s %@",self,__LINE__,__FUNCTION__,format] , ##__VA_ARGS__ ])
-	#define JLineC(format, ...)			([NSString stringWithFormat:[NSString stringWithFormat:@"\t(%08x.%04d) %s %s(): %@",NULL,__LINE__,__FILE__,__FUNCTION__,format] , ##__VA_ARGS__ ])
+	#define JLine(firstarg, ...)			([NSString stringWithFormat:@"\t(%08x.%04d)%s %@",self,__LINE__,__FUNCTION__,[NSString stringWithFormat:firstarg, ##__VA_ARGS__ ]])
+	#define JLineC(firstarg, ...)			([NSString stringWithFormat:@"\t(%08x.%04d) %s %s(): %@",NULL,__LINE__,__FILE__,__FUNCTION__,[NSString stringWithFormat:firstarg , ##__VA_ARGS__ ]])
 
-	#define JLog(format, ...)			NSLog(@"%@",JLine(format , ##__VA_ARGS__ ))
-	#define JLogC(format, ...)			NSLog(@"%@",JLineC(format ,  ##__VA_ARGS__ ))
+	#define JLog(firstarg, ...)				NSLog(@"%@",JLine(firstarg , ##__VA_ARGS__ ))
+	#define JLogC(firstarg, ...)			NSLog(@"%@",JLineC(firstarg ,  ##__VA_ARGS__ ))
 
 	#define DJLog		if(DEBUG)JLog
 	#define D2JLog		if(DEBUG>1)JLog
