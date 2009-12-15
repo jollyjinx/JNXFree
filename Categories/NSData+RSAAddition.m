@@ -128,25 +128,31 @@ int verify_sha1(unsigned char *msg, unsigned int mlen, unsigned char *sig,
 		if( NULL == newRSA )
 		{
 			JLog(@"couldn't create rsa object");
+			BIO_free(publickeymemory);
 			return nil;
 		}
 	}
-
+	BIO_free(publickeymemory);
+	
 	switch( type )
 	{
 		case NID_ripemd160:	{
 								if( 1 == verify_ripemd160( (unsigned char *)[self bytes], [self length],(unsigned char *)[signature bytes], [signature length],newRSA) )
 								{
+									RSA_free(newRSA);
 									return YES;
 								}
 							}break;
 		case NID_sha1:		{
 								if( 1 == verify_sha1( (unsigned char *)[self bytes], [self length],(unsigned char *)[signature bytes], [signature length],newRSA) )
 								{
+									RSA_free(newRSA);
 									return YES;
 								}
 						}break;
 		default:		JLog(@"type %d not supported.",type);
+						RSA_free(newRSA);
+
 	}
 	DJLog(@"signature did not match");
 	return NO;
