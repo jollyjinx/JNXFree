@@ -93,7 +93,7 @@ DEBUGRETAINCYCLE
 	struct timespec endtime;
 	
 	endtime.tv_sec	= endtimeasdouble;
-	endtime.tv_nsec	= ((double)1000000000.0f) *(endtimeasdouble-(double)( (int)endtimeasdouble));
+	endtime.tv_nsec	= ((double)NSEC_PER_SEC) *(endtimeasdouble-(double)( (int)endtimeasdouble));
 	
 
 	while( arraycounter < 1 )
