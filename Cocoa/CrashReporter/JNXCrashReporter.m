@@ -95,7 +95,7 @@
 		&&	(nil != (lastCrashReportDate = [[[NSFileManager defaultManager] fileAttributesAtPath:[self lastCrashReportFilename] traverseLink: YES] fileModificationDate]) )
 		&&  (NSOrderedAscending == [lastReportedDate compare: lastCrashReportDate]))
 	{
-		DJLog(@"has a new crashreport: %@",lastCrashReportFilename);
+		DJLog(@"has a new crashreport: %@ lastReportDate:%@ lastCrashReportDate:%@",lastCrashReportFilename,lastReportedDate,lastCrashReportDate);
 		
 		NSString *alertString = [NSString stringWithFormat:@"%@ has crashed the last time.\nTo improve %@ send the developer a mail.\n",[[NSProcessInfo processInfo] processName],[[NSProcessInfo processInfo] processName]];
 		int alertreturn = [[NSAlert alertWithMessageText:@"Crashlog detected" defaultButton:@"Send Mail" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:alertString] runModal];
@@ -136,19 +136,21 @@
 	NSDate					*crashlogDate			= [NSDate distantPast];
 	
 	NSString				*crashlogPathname				= [[NSHomeDirectory() stringByAppendingPathComponent: @"Library"] stringByAppendingPathComponent: @"Logs"];
-	NSDirectoryEnumerator	*crashLogDirectoryEnumerator	= [[NSFileManager defaultManager]  enumeratorAtPath:crashlogPathname];
 	
-	NSString				*intermediateCrashlogFilename;
 	
 	NSString				*logfileExtension	= @"crash";
 	NSString				*logfilePrfix		= [NSString stringWithFormat:@"%@_",[[NSProcessInfo processInfo] processName]];
 	
 	if( 0x080000 == (0xFF0000&osversion()) )
 	{
+		crashlogPathname	= [crashlogPathname stringByAppendingPathComponent:@"CrashReporter"];
 		logfileExtension	= @"log";
 		logfilePrfix		= [NSString stringWithFormat:@"%@",[[NSProcessInfo processInfo] processName]];
 	}
 	
+	NSDirectoryEnumerator	*crashLogDirectoryEnumerator	= [[NSFileManager defaultManager]  enumeratorAtPath:crashlogPathname];
+	NSString				*intermediateCrashlogFilename;
+
 	while( intermediateCrashlogFilename = [crashLogDirectoryEnumerator nextObject] )
 	{
 		if( ![[intermediateCrashlogFilename pathExtension] isEqualToString:logfileExtension] )
