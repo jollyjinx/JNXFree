@@ -7,6 +7,7 @@
 //
 
 #import "JNXCrashReporter.h"
+#import "osversion.h"
 #include <unistd.h>
 
 #define JNX_CRASHREPORTER_DEFAULTS_DATEKEY		@"JNXCrashReporter.lastCrashTestDate"
@@ -74,7 +75,7 @@
 		[[NSUserDefaults standardUserDefaults] setObject: [NSDate date] forKey: JNX_CRASHREPORTER_DEFAULTS_DATEKEY];
 		if( ! [[NSUserDefaults standardUserDefaults] synchronize] )
 		{
-			JLog(@"Could not syncronize defaults.");
+			JLog(@"Could not synchronize defaults.");
 		}
 		return;
 	}
@@ -121,7 +122,7 @@
 	}
 	if( ! [[NSUserDefaults standardUserDefaults] synchronize] )
 	{
-		JLog(@"Could not syncronize defaults.");
+		JLog(@"Could not synchronize defaults.");
 	}
 }
 
@@ -139,9 +140,18 @@
 	
 	NSString				*intermediateCrashlogFilename;
 	
+	NSString				*logfileExtension	= @"crash";
+	NSString				*logfilePrfix		= [NSString stringWithFormat:@"%@_",[[NSProcessInfo processInfo] processName]];
+	
+	if( 0x080000 == (0xFF0000&osversion()) )
+	{
+		logfileExtension	= @"log";
+		logfilePrfix		= [NSString stringWithFormat:@"%@",[[NSProcessInfo processInfo] processName]];
+	}
+	
 	while( intermediateCrashlogFilename = [crashLogDirectoryEnumerator nextObject] )
 	{
-		if( ![[intermediateCrashlogFilename pathExtension] isEqualToString:@"crash"] )
+		if( ![[intermediateCrashlogFilename pathExtension] isEqualToString:logfileExtension] )
 		{
 			continue;
 		}
@@ -153,7 +163,7 @@
 			NSString *currentFileName =  [intermediateCrashlogFilename lastPathComponent];
 			DJLog(@"testing: %@",intermediateCrashlogFilename);
 		
-			if(		[currentFileName hasPrefix:[NSString stringWithFormat:@"%@_",[[NSProcessInfo processInfo] processName]]]
+			if(		[currentFileName hasPrefix:logfilePrfix]
 				&&	(NSOrderedAscending == [(NSDate *)crashlogDate compare:[fileAttributes objectForKey:NSFileModificationDate]] ) )
 			{
 				//DJLog(@"Found newer crashlog: %@",intermediateCrashlogFilename);
@@ -172,6 +182,6 @@
 	return [crashlogPathname stringByAppendingPathComponent:crashlogFilename];
 }
 
-
-
 @end
+
+
