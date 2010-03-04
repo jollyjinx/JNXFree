@@ -70,9 +70,10 @@
 	}
 	
 	unsigned int	originallength		= [self length]; 
-	unsigned int	goodsizelength		= 1024*(originallength+1023/1024);
-	
+	unsigned int	goodsizelength		= ((originallength+1023)/1024)*1024;
+		
 	void			*uncompresseddata	= malloc(originallength+goodsizelength);
+	
 	unsigned int	uncompressedspace	= originallength+goodsizelength;
 	
 	zstream.total_out	= 0;
