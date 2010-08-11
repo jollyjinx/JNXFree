@@ -11,7 +11,7 @@
 JNX_RELEASE_TEXT
         ]]></description> 
         <pubDate>JNX_RELEASE_DATE</pubDate>
-        <enclosure sparkle:shortVersionString="JNX_RELEASE_VERSION" sparkle:version="JNX_RELEASE_REVISION" url="http://www.jinx.de/JollysFastVNC_files/JollysFastVNC.JNX_RELEASE_VERSION.(JNX_RELEASE_REVISION).dmg" length="880000" type="application/octet-stream"/>
+        <enclosure sparkle:shortVersionString="JNX_RELEASE_VERSION" sparkle:version="JNX_RELEASE_REVISION" JNX_SPARKLE_SIGNATURE_ATTRIBUTE url="http://www.jinx.de/JollysFastVNC_files/JollysFastVNC.JNX_RELEASE_VERSION.(JNX_RELEASE_REVISION).dmg" length="JNX_SPARKLE_SIZE" type="application/octet-stream"/>
   	 </item>
 </channel>
 </rss>
