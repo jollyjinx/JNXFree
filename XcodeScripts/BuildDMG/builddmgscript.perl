@@ -23,34 +23,30 @@ else
 }
 
 
-my $info = filecontentsasstring("$ENV{CONFIGURATION_BUILD_DIR}/$ENV{PROJECT_NAME}.app/Contents/Info.plist");
+my %substitutiondictionary;
 
-my $version 			= $1 if $info =~ m#<key>CFBundleShortVersionString</key>\s*<string>\s*(.*?)\s*<\/string>#s;
-my $revision			= $1 if $info =~ m#<key>CFBundleVersion</key>\s*<string>\s*(.*?)\s*<\/string>#s;
-my $jnxcommitdate 		= $1 if $info =~ m#<key>JNXCommitDate</key>\s*<string>\s*(.*?)\s*<\/string>#s;
-my $jnxcommitrevision 	= $1 if $info =~ m#<key>JNXCommitRevision</key>\s*<string>\s*(.*?)\s*<\/string>#s;
-my $jnxcommitversion 	= $1 if $info =~ m#<key>JNXCommitVersion</key>\s*<string>\s*(.*?)\s*<\/string>#s;
+$substitutiondictionary{JNX_BUNDLE_IDENTIFIER} = $ENV{CODE_SIGN_IDENTITY};
 
-my $bundleid= $ENV{CODE_SIGN_IDENTITY};
-
-if( !length($bundleid) )
 {
-	$bundleid=$1 if $info =~ m#<key>CFBundleIdentifier</key>\s*<string>\s*(.*?)\s*<\/string>#s;
-}
-
-die "Can't find version info" if ! $version;
-
-my %substitutiondictionary = (	JNX_RELEASE_DATE		=> $jnxcommitdate,
-								JNX_RELEASE_REVISION	=> $revision,
-								JNX_RELEASE_VERSION		=> $version
+	my %keyvaluedictionary = (	CFBundleShortVersionString	=>	'JNX_RELEASE_VERSION' ,
+								CFBundleVersion				=>	'JNX_RELEASE_REVISION',
+								JNXCommitDate				=>	'JNX_RELEASE_DATE',
+								JNXCommitVersion			=>	'JNX_COMMIT_VERSION',
+								JNXCommitRevision			=>	'JNX_COMMIT_REVISION',
+								CFBundleIdentifier			=>	'JNX_BUNDLE_IDENTIFIER',
 							);
-foreach my $filename ('/Other Resources/ReleaseHistory/Release.txt','/Other Resources/ReleaseHistory/History.txt' )
-{
-	substituteStringsInFile($ENV{SOURCE_ROOT}.$filename, \%substitutiondictionary);
+							
+	my $info = filecontentsasstring("$ENV{CONFIGURATION_BUILD_DIR}/$ENV{PROJECT_NAME}.app/Contents/Info.plist");
+
+	while( my($key,$value) = each %keyvaluedictionary )
+	{
+		$substitutiondictionary{$value}=$1 if $info=~ m#<key>$key</key>\s*<string>\s*(.*?)\s*<\/string>#s
+	}
+	die "Can't find version in info file" if !defined $substitutiondictionary{JNX_RELEASE_VERSION};
 }
 
 
-my $volumename = $ENV{PROJECT_NAME}.'.'.$version.'.('.$revision.')';
+my $volumename = $ENV{PROJECT_NAME}.'.'.$substitutiondictionary{JNX_RELEASE_VERSION}.'.('.$substitutiondictionary{JNX_RELEASE_REVISION}.')';
 
 my $DMG_DIRECTORY			= $ENV{TEMP_DIR}.'/dmg';
 my $finaldirectory			= $DMG_DIRECTORY.'/final';
@@ -77,9 +73,37 @@ system('find',$releasecopydirectory,'-type','f','-name','*.h','-exec','rm','-rf'
 system('find',$releasecopydirectory,'-type','f','-perm','0755','-name',$ENV{PROJECT_NAME},'-exec','strip','{}',';');
 # system('find',$releasecopydirectory,'-maxdepth','1','-type','f','-perm','755','-exec','rm','-rf','{}',';');
 
-if( $bundleid )
+
+
+my $APP_WRAPPER_DIRECTORY		= $releasecopydirectory.'/'.$ENV{PROJECT_NAME}.'.app';
+my $APP_RESOURCES_DIRECTORY		= $APP_WRAPPER_DIRECTORY.'/Contents/Resources';
+my $SPARKLE_FILE_NAME			= $ENV{PROJECT_NAME}.'.update.xml';
+
+
+my %filecontents;
+
+foreach my $filename ( 'Release.txt', 'History.txt', 'SparkleWrapper.xml' )
 {
-	system('codesign','-f','-s',$bundleid,$releasecopydirectory.'/'.$ENV{PROJECT_NAME}.'.app');
+	my $filecontent = filecontentsasstring($ENV{SOURCE_ROOT}.'/Other Resources/ReleaseHistory/'.$filename);
+	
+	$filecontents{$filename} = substituteStrings($filecontent,\%substitutiondictionary);
+	
+	unlink($APP_RESOURCES_DIRECTORY.'/'.$filename);
+}
+
+
+{
+	my $releasetext			= $filecontents{'Release.txt'};
+	my $releasehistorytext	= $filecontents{'History.txt'};
+
+	$releasehistorytext =~ s#<body>(.*?)</body>#<body>$releasetext\n$1</body>#gs;
+
+	writefile($APP_RESOURCES_DIRECTORY.'/ReleaseHistory.html',$releasehistorytext);
+}
+
+if( $substitutiondictionary{JNX_BUNDLE_IDENTIFIER} )
+{
+	system('codesign','-f','-s',$substitutiondictionary{JNX_BUNDLE_IDENTIFIER} ,$APP_WRAPPER_DIRECTORY);
 }
 
 
@@ -89,15 +113,12 @@ system('hdiutil','create','-srcfolder',$releasecopydirectory,'-format','UDZO','-
 {
 	my($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$mtime,$ctime,$blksize,$blocks) = stat($intermediatedmg);
 
-	$substitutiondictionary{JNX_SPARKLE_SIGNATURE_ATTRIBUTE}	= sparkleSignatureAttribute($bundleid,$intermediatedmg);
-	$substitutiondictionary{JNX_SPARKLE_TEXT}					= filecontentsasstring($ENV{SOURCE_ROOT}.'/Other Resources/ReleaseHistory/Release.txt');
+	$substitutiondictionary{JNX_SPARKLE_SIGNATURE_ATTRIBUTE}	= sparkleSignatureAttribute($substitutiondictionary{JNX_BUNDLE_IDENTIFIER},$intermediatedmg);
+	$substitutiondictionary{JNX_RELEASE_TEXT}					= $filecontents{'Release.txt'};;
 	$substitutiondictionary{JNX_SPARKLE_SIZE}					= $size;
 
-
-	substituteStringsInFile($finaldirectory.'/'.$ENV{PROJECT_NAME}.'.update.xml', \%substitutiondictionary);
+	writefile( $finaldirectory.'/'.$SPARKLE_FILE_NAME, substituteStrings($filecontents{'SparkleWrapper.xml'},\%substitutiondictionary) );
 }
-
-
 
 
 system('mv',$intermediatedmg,$finaldirectory.'/');
@@ -109,7 +130,15 @@ exit 0; # EXIT_SUCCESS;
 
 
 
-
+sub writefile($$)
+{
+	my($filename,$content) = @_;
+	
+	local $\=undef;
+	open(FILE,'>'.$filename) || die "Can't open file $filename for writing $!";
+	print FILE $content;
+	close(FILE);
+}
 
 sub filecontentsasstring($)
 {	
@@ -123,7 +152,17 @@ sub filecontentsasstring($)
 	return $filecontent;
 }
 
-
+sub substituteStrings($$)
+{
+	my($content,$substitutiondictionary) = @_;
+	
+	while( my($key,$value) = each %{$substitutiondictionary} )
+	{
+		$content	=~ s/$key/$value/g;
+	}
+	
+	return $content;
+}
 
 sub substituteStringsInFile($$)
 {
@@ -131,15 +170,7 @@ sub substituteStringsInFile($$)
 
 	my $filecontent = filecontentsasstring($filename);
 	
-	while( my($key,$value) = each %{$substitutiondictionary} )
-	{
-		$filecontent	=~ s/$key/$value/g;
-	}
-	
-	local $\=undef;
-	open(FILE,'>'.$filename) || die "Can't open file $filename for writing $!";
-	print FILE $filecontent;
-	close(FILE);
+	writefile($filename,substituteStrings($filecontent,$substitutiondictionary));
 }
 
 
