@@ -3,5 +3,5 @@
 	<p/>
 	<p/>
 	<ul>
-		<li>Fixed bonjour icon when host no longer announced.
+		<li>Updated to new JNXFree.framework version.
 	</ul>

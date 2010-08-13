@@ -8,8 +8,7 @@
 
 #import "TestingClass.h"
 
-#import "JNXPasswordPanel.h"
-#import "JNXCrashReporter.h"
+#import <JNXFree/JNXFree.h>
 
 @implementation TestingClass
 
