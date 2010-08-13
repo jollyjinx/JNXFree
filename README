@@ -7,10 +7,14 @@ Regards Jolly aka Patrick
 author of: ScreenRecycler, JollysFastVNC, SmartSleep, SmartSokoban and more.
 
 
-
 ============================================================
 Directory Layout
 ============================================================
+
+JNXFreeFramework/
+
+	Contains the Xcode project to build the framework. When built you can simply drag the framework then in your Project and use the classes.
+	The built framework does not include the AVL dependend classses as the avl library files (rb.c rb.h) are gnu licensed. 
 
 JLog/           Contains .pch file I include in all projects now. Debug logging as well as retain/release cycle logging.
 

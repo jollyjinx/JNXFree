@@ -85,7 +85,7 @@
 		E0FCDC8A121589A1002B3A8C /* libcrypto.0.9.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.0.9.7.dylib; path = usr/lib/libcrypto.0.9.7.dylib; sourceTree = SDKROOT; };
 		E0FCDC8E121589CB002B3A8C /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = usr/lib/libz.1.dylib; sourceTree = SDKROOT; };
 		E0FCDCE812158CFF002B3A8C /* JNXFree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXFree.h; sourceTree = "<group>"; };
-		E0FCDD1712158FE1002B3A8C /* Default.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Default.pch; path = ../../JLog/Default.pch; sourceTree = SOURCE_ROOT; };
+		E0FCDD1712158FE1002B3A8C /* Default.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Default.pch; path = ../JLog/Default.pch; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +191,7 @@
 				E04755E5121587BA00F38F80 /* JNXCrashReporter.m */,
 			);
 			name = CrashReporter;
-			path = ../../Cocoa/CrashReporter;
+			path = ../Cocoa/CrashReporter;
 			sourceTree = SOURCE_ROOT;
 		};
 		E04755E9121587C300F38F80 /* PasswordPanel */ = {
@@ -208,7 +208,7 @@
 				E04755EE121587C300F38F80 /* JNXPasswordPanel.xib */,
 			);
 			name = PasswordPanel;
-			path = ../../Cocoa/PasswordPanel;
+			path = ../Cocoa/PasswordPanel;
 			sourceTree = SOURCE_ROOT;
 		};
 		E04755FC121587D200F38F80 /* Foundation */ = {
@@ -219,7 +219,7 @@
 				E0475609121587D200F38F80 /* SortedArray */,
 			);
 			name = Foundation;
-			path = ../../Foundation;
+			path = ../Foundation;
 			sourceTree = SOURCE_ROOT;
 		};
 		E04755FD121587D200F38F80 /* Queues */ = {
@@ -262,7 +262,7 @@
 				E047562D1215883C00F38F80 /* osversion.h */,
 			);
 			name = osversion;
-			path = ../../System/osversion;
+			path = ../System/osversion;
 			sourceTree = SOURCE_ROOT;
 		};
 		E04756911215894900F38F80 /* Categories */ = {
@@ -277,7 +277,7 @@
 				E04756921215894900F38F80 /* 10.4 */,
 			);
 			name = Categories;
-			path = ../../Categories;
+			path = ../Categories;
 			sourceTree = SOURCE_ROOT;
 		};
 		E04756921215894900F38F80 /* 10.4 */ = {
@@ -378,7 +378,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\nperl $SOURCE_ROOT/../../XcodeScripts/versionscript.perl\n";
+			shellScript = "\nperl $SOURCE_ROOT/../XcodeScripts/versionscript.perl\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
