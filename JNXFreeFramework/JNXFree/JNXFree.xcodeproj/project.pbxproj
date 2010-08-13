@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		E04755E7121587BA00F38F80 /* JNXCrashReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = E04755E4121587BA00F38F80 /* JNXCrashReporter.h */; };
+		E04755E8121587BA00F38F80 /* JNXCrashReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = E04755E5121587BA00F38F80 /* JNXCrashReporter.m */; };
+		E04755F3121587C300F38F80 /* JNXKeyChainPassword.h in Headers */ = {isa = PBXBuildFile; fileRef = E04755EA121587C300F38F80 /* JNXKeyChainPassword.h */; };
+		E04755F4121587C300F38F80 /* JNXKeyChainPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = E04755EB121587C300F38F80 /* JNXKeyChainPassword.m */; };
+		E04755F5121587C300F38F80 /* JNXPasswordPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = E04755EC121587C300F38F80 /* JNXPasswordPanel.h */; };
+		E04755F6121587C300F38F80 /* JNXPasswordPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = E04755ED121587C300F38F80 /* JNXPasswordPanel.m */; };
+		E04755F7121587C300F38F80 /* JNXPasswordPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04755EE121587C300F38F80 /* JNXPasswordPanel.xib */; };
+		E04755F8121587C300F38F80 /* NSDictionary+KeyValueStringEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = E04755EF121587C300F38F80 /* NSDictionary+KeyValueStringEncoding.h */; };
+		E04755F9121587C300F38F80 /* NSDictionary+KeyValueStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E04755F0121587C300F38F80 /* NSDictionary+KeyValueStringEncoding.m */; };
+		E04755FA121587C300F38F80 /* NSString+PercentEscape.h in Headers */ = {isa = PBXBuildFile; fileRef = E04755F1121587C300F38F80 /* NSString+PercentEscape.h */; };
+		E04755FB121587C300F38F80 /* NSString+PercentEscape.m in Sources */ = {isa = PBXBuildFile; fileRef = E04755F2121587C300F38F80 /* NSString+PercentEscape.m */; };
+		E047560C121587D200F38F80 /* JNXAdvancedDatedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = E04755FE121587D200F38F80 /* JNXAdvancedDatedQueue.h */; };
+		E047560D121587D200F38F80 /* JNXAdvancedDatedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E04755FF121587D200F38F80 /* JNXAdvancedDatedQueue.m */; };
+		E047560E121587D200F38F80 /* JNXDatedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = E0475600121587D200F38F80 /* JNXDatedQueue.h */; };
+		E047560F121587D200F38F80 /* JNXDatedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E0475601121587D200F38F80 /* JNXDatedQueue.m */; };
+		E0475610121587D200F38F80 /* JNXMTQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = E0475602121587D200F38F80 /* JNXMTQueue.h */; };
+		E0475611121587D200F38F80 /* JNXMTQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E0475603121587D200F38F80 /* JNXMTQueue.m */; };
+		E0475612121587D200F38F80 /* JNXRedBlackTree.h in Headers */ = {isa = PBXBuildFile; fileRef = E0475605121587D200F38F80 /* JNXRedBlackTree.h */; };
+		E0475613121587D200F38F80 /* JNXRedBlackTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E0475606121587D200F38F80 /* JNXRedBlackTree.m */; };
+		E0475614121587D200F38F80 /* rb.c in Sources */ = {isa = PBXBuildFile; fileRef = E0475607121587D200F38F80 /* rb.c */; };
+		E0475615121587D200F38F80 /* rb.h in Headers */ = {isa = PBXBuildFile; fileRef = E0475608121587D200F38F80 /* rb.h */; };
+		E0475616121587D200F38F80 /* JNXSortedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = E047560A121587D200F38F80 /* JNXSortedArray.h */; };
+		E0475617121587D200F38F80 /* JNXSortedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = E047560B121587D200F38F80 /* JNXSortedArray.m */; };
+		E047562E1215883C00F38F80 /* osversion.c in Sources */ = {isa = PBXBuildFile; fileRef = E047562C1215883C00F38F80 /* osversion.c */; };
+		E047562F1215883C00F38F80 /* osversion.h in Headers */ = {isa = PBXBuildFile; fileRef = E047562D1215883C00F38F80 /* osversion.h */; };
+		E047563F1215886300F38F80 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E047563E1215886300F38F80 /* Security.framework */; };
+		E047569B1215894900F38F80 /* NSThread+LeopardAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E04756931215894900F38F80 /* NSThread+LeopardAdditions.h */; };
+		E047569C1215894900F38F80 /* NSThread+LeopardAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E04756941215894900F38F80 /* NSThread+LeopardAdditions.m */; };
+		E047569D1215894900F38F80 /* NSData+RSAAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E04756951215894900F38F80 /* NSData+RSAAddition.h */; };
+		E047569E1215894900F38F80 /* NSData+RSAAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E04756961215894900F38F80 /* NSData+RSAAddition.m */; };
+		E047569F1215894900F38F80 /* NSData+ZlibAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E04756971215894900F38F80 /* NSData+ZlibAddition.h */; };
+		E04756A01215894900F38F80 /* NSData+ZlibAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E04756981215894900F38F80 /* NSData+ZlibAddition.m */; };
+		E04756A11215894900F38F80 /* NSData+sha1Addition.h in Headers */ = {isa = PBXBuildFile; fileRef = E04756991215894900F38F80 /* NSData+sha1Addition.h */; };
+		E04756A21215894900F38F80 /* NSData+sha1Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E047569A1215894900F38F80 /* NSData+sha1Addition.m */; };
+		E0FCDC8B121589A1002B3A8C /* libcrypto.0.9.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FCDC8A121589A1002B3A8C /* libcrypto.0.9.7.dylib */; };
+		E0FCDC8F121589CB002B3A8C /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FCDC8E121589CB002B3A8C /* libz.1.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF5E0370ADEE00C91783 /* JNXFree_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXFree_Prefix.pch; sourceTree = "<group>"; };
+		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DC2EF5B0486A6940098B216 /* JNXFree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JNXFree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		E04755E4121587BA00F38F80 /* JNXCrashReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXCrashReporter.h; sourceTree = "<group>"; };
+		E04755E5121587BA00F38F80 /* JNXCrashReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNXCrashReporter.m; sourceTree = "<group>"; };
+		E04755EA121587C300F38F80 /* JNXKeyChainPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXKeyChainPassword.h; sourceTree = "<group>"; };
+		E04755EB121587C300F38F80 /* JNXKeyChainPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNXKeyChainPassword.m; sourceTree = "<group>"; };
+		E04755EC121587C300F38F80 /* JNXPasswordPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXPasswordPanel.h; sourceTree = "<group>"; };
+		E04755ED121587C300F38F80 /* JNXPasswordPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNXPasswordPanel.m; sourceTree = "<group>"; };
+		E04755EE121587C300F38F80 /* JNXPasswordPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JNXPasswordPanel.xib; sourceTree = "<group>"; };
+		E04755EF121587C300F38F80 /* NSDictionary+KeyValueStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+KeyValueStringEncoding.h"; sourceTree = "<group>"; };
+		E04755F0121587C300F38F80 /* NSDictionary+KeyValueStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+KeyValueStringEncoding.m"; sourceTree = "<group>"; };
+		E04755F1121587C300F38F80 /* NSString+PercentEscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PercentEscape.h"; sourceTree = "<group>"; };
+		E04755F2121587C300F38F80 /* NSString+PercentEscape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PercentEscape.m"; sourceTree = "<group>"; };
+		E04755FE121587D200F38F80 /* JNXAdvancedDatedQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXAdvancedDatedQueue.h; sourceTree = "<group>"; };
+		E04755FF121587D200F38F80 /* JNXAdvancedDatedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNXAdvancedDatedQueue.m; sourceTree = "<group>"; };
+		E0475600121587D200F38F80 /* JNXDatedQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXDatedQueue.h; sourceTree = "<group>"; };
+		E0475601121587D200F38F80 /* JNXDatedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNXDatedQueue.m; sourceTree = "<group>"; };
+		E0475602121587D200F38F80 /* JNXMTQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXMTQueue.h; sourceTree = "<group>"; };
+		E0475603121587D200F38F80 /* JNXMTQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNXMTQueue.m; sourceTree = "<group>"; };
+		E0475605121587D200F38F80 /* JNXRedBlackTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXRedBlackTree.h; sourceTree = "<group>"; };
+		E0475606121587D200F38F80 /* JNXRedBlackTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNXRedBlackTree.m; sourceTree = "<group>"; };
+		E0475607121587D200F38F80 /* rb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rb.c; sourceTree = "<group>"; };
+		E0475608121587D200F38F80 /* rb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rb.h; sourceTree = "<group>"; };
+		E047560A121587D200F38F80 /* JNXSortedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXSortedArray.h; sourceTree = "<group>"; };
+		E047560B121587D200F38F80 /* JNXSortedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNXSortedArray.m; sourceTree = "<group>"; };
+		E047562C1215883C00F38F80 /* osversion.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = osversion.c; sourceTree = "<group>"; };
+		E047562D1215883C00F38F80 /* osversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = osversion.h; sourceTree = "<group>"; };
+		E047563E1215886300F38F80 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
+		E04756931215894900F38F80 /* NSThread+LeopardAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+LeopardAdditions.h"; sourceTree = "<group>"; };
+		E04756941215894900F38F80 /* NSThread+LeopardAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+LeopardAdditions.m"; sourceTree = "<group>"; };
+		E04756951215894900F38F80 /* NSData+RSAAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+RSAAddition.h"; sourceTree = "<group>"; };
+		E04756961215894900F38F80 /* NSData+RSAAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+RSAAddition.m"; sourceTree = "<group>"; };
+		E04756971215894900F38F80 /* NSData+ZlibAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ZlibAddition.h"; sourceTree = "<group>"; };
+		E04756981215894900F38F80 /* NSData+ZlibAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ZlibAddition.m"; sourceTree = "<group>"; };
+		E04756991215894900F38F80 /* NSData+sha1Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+sha1Addition.h"; sourceTree = "<group>"; };
+		E047569A1215894900F38F80 /* NSData+sha1Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+sha1Addition.m"; sourceTree = "<group>"; };
+		E0FCDC8A121589A1002B3A8C /* libcrypto.0.9.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.0.9.7.dylib; path = usr/lib/libcrypto.0.9.7.dylib; sourceTree = SDKROOT; };
+		E0FCDC8E121589CB002B3A8C /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = usr/lib/libz.1.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DC2EF560486A6940098B216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
+				E047563F1215886300F38F80 /* Security.framework in Frameworks */,
+				E0FCDC8B121589A1002B3A8C /* libcrypto.0.9.7.dylib in Frameworks */,
+				E0FCDC8F121589CB002B3A8C /* libz.1.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5B0486A6940098B216 /* JNXFree.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* JNXFree */ = {
+			isa = PBXGroup;
+			children = (
+				E04756911215894900F38F80 /* Categories */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				E04755FC121587D200F38F80 /* Foundation */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				089C1665FE841158C02AAC07 /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = JNXFree;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C1665FE841158C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5A0486A6940098B216 /* Info.plist */,
+				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E04755E2121587BA00F38F80 /* CrashReporter */,
+				E04755E9121587C300F38F80 /* PasswordPanel */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E047563E1215886300F38F80 /* Security.framework */,
+				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
+				E0FCDC8A121589A1002B3A8C /* libcrypto.0.9.7.dylib */,
+				E0FCDC8E121589CB002B3A8C /* libz.1.dylib */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
+				D2F7E79907B2D74100F64583 /* CoreData.framework */,
+				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF5E0370ADEE00C91783 /* JNXFree_Prefix.pch */,
+				E047562B1215883C00F38F80 /* osversion */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		E04755E2121587BA00F38F80 /* CrashReporter */ = {
+			isa = PBXGroup;
+			children = (
+				E04755E4121587BA00F38F80 /* JNXCrashReporter.h */,
+				E04755E5121587BA00F38F80 /* JNXCrashReporter.m */,
+			);
+			name = CrashReporter;
+			path = ../../Cocoa/CrashReporter;
+			sourceTree = SOURCE_ROOT;
+		};
+		E04755E9121587C300F38F80 /* PasswordPanel */ = {
+			isa = PBXGroup;
+			children = (
+				E04755EA121587C300F38F80 /* JNXKeyChainPassword.h */,
+				E04755EB121587C300F38F80 /* JNXKeyChainPassword.m */,
+				E04755EC121587C300F38F80 /* JNXPasswordPanel.h */,
+				E04755ED121587C300F38F80 /* JNXPasswordPanel.m */,
+				E04755EF121587C300F38F80 /* NSDictionary+KeyValueStringEncoding.h */,
+				E04755F0121587C300F38F80 /* NSDictionary+KeyValueStringEncoding.m */,
+				E04755F1121587C300F38F80 /* NSString+PercentEscape.h */,
+				E04755F2121587C300F38F80 /* NSString+PercentEscape.m */,
+				E04755EE121587C300F38F80 /* JNXPasswordPanel.xib */,
+			);
+			name = PasswordPanel;
+			path = ../../Cocoa/PasswordPanel;
+			sourceTree = SOURCE_ROOT;
+		};
+		E04755FC121587D200F38F80 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				E04755FD121587D200F38F80 /* Queues */,
+				E0475604121587D200F38F80 /* RedBlackTree */,
+				E0475609121587D200F38F80 /* SortedArray */,
+			);
+			name = Foundation;
+			path = ../../Foundation;
+			sourceTree = SOURCE_ROOT;
+		};
+		E04755FD121587D200F38F80 /* Queues */ = {
+			isa = PBXGroup;
+			children = (
+				E04755FE121587D200F38F80 /* JNXAdvancedDatedQueue.h */,
+				E04755FF121587D200F38F80 /* JNXAdvancedDatedQueue.m */,
+				E0475600121587D200F38F80 /* JNXDatedQueue.h */,
+				E0475601121587D200F38F80 /* JNXDatedQueue.m */,
+				E0475602121587D200F38F80 /* JNXMTQueue.h */,
+				E0475603121587D200F38F80 /* JNXMTQueue.m */,
+			);
+			path = Queues;
+			sourceTree = "<group>";
+		};
+		E0475604121587D200F38F80 /* RedBlackTree */ = {
+			isa = PBXGroup;
+			children = (
+				E0475605121587D200F38F80 /* JNXRedBlackTree.h */,
+				E0475606121587D200F38F80 /* JNXRedBlackTree.m */,
+				E0475607121587D200F38F80 /* rb.c */,
+				E0475608121587D200F38F80 /* rb.h */,
+			);
+			path = RedBlackTree;
+			sourceTree = "<group>";
+		};
+		E0475609121587D200F38F80 /* SortedArray */ = {
+			isa = PBXGroup;
+			children = (
+				E047560A121587D200F38F80 /* JNXSortedArray.h */,
+				E047560B121587D200F38F80 /* JNXSortedArray.m */,
+			);
+			path = SortedArray;
+			sourceTree = "<group>";
+		};
+		E047562B1215883C00F38F80 /* osversion */ = {
+			isa = PBXGroup;
+			children = (
+				E047562C1215883C00F38F80 /* osversion.c */,
+				E047562D1215883C00F38F80 /* osversion.h */,
+			);
+			name = osversion;
+			path = ../../System/osversion;
+			sourceTree = SOURCE_ROOT;
+		};
+		E04756911215894900F38F80 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E04756951215894900F38F80 /* NSData+RSAAddition.h */,
+				E04756961215894900F38F80 /* NSData+RSAAddition.m */,
+				E04756971215894900F38F80 /* NSData+ZlibAddition.h */,
+				E04756981215894900F38F80 /* NSData+ZlibAddition.m */,
+				E04756991215894900F38F80 /* NSData+sha1Addition.h */,
+				E047569A1215894900F38F80 /* NSData+sha1Addition.m */,
+				E04756921215894900F38F80 /* 10.4 */,
+			);
+			name = Categories;
+			path = ../../Categories;
+			sourceTree = SOURCE_ROOT;
+		};
+		E04756921215894900F38F80 /* 10.4 */ = {
+			isa = PBXGroup;
+			children = (
+				E04756931215894900F38F80 /* NSThread+LeopardAdditions.h */,
+				E04756941215894900F38F80 /* NSThread+LeopardAdditions.m */,
+			);
+			path = 10.4;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8DC2EF500486A6940098B216 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E04755E7121587BA00F38F80 /* JNXCrashReporter.h in Headers */,
+				E04755F3121587C300F38F80 /* JNXKeyChainPassword.h in Headers */,
+				E04755F5121587C300F38F80 /* JNXPasswordPanel.h in Headers */,
+				E04755F8121587C300F38F80 /* NSDictionary+KeyValueStringEncoding.h in Headers */,
+				E04755FA121587C300F38F80 /* NSString+PercentEscape.h in Headers */,
+				E047560C121587D200F38F80 /* JNXAdvancedDatedQueue.h in Headers */,
+				E047560E121587D200F38F80 /* JNXDatedQueue.h in Headers */,
+				E0475610121587D200F38F80 /* JNXMTQueue.h in Headers */,
+				E0475612121587D200F38F80 /* JNXRedBlackTree.h in Headers */,
+				E0475615121587D200F38F80 /* rb.h in Headers */,
+				E0475616121587D200F38F80 /* JNXSortedArray.h in Headers */,
+				E047562F1215883C00F38F80 /* osversion.h in Headers */,
+				E047569B1215894900F38F80 /* NSThread+LeopardAdditions.h in Headers */,
+				E047569D1215894900F38F80 /* NSData+RSAAddition.h in Headers */,
+				E047569F1215894900F38F80 /* NSData+ZlibAddition.h in Headers */,
+				E04756A11215894900F38F80 /* NSData+sha1Addition.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8DC2EF4F0486A6940098B216 /* JNXFree */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "JNXFree" */;
+			buildPhases = (
+				8DC2EF500486A6940098B216 /* Headers */,
+				8DC2EF520486A6940098B216 /* Resources */,
+				8DC2EF540486A6940098B216 /* Sources */,
+				E0FCDC93121589F3002B3A8C /* version script */,
+				8DC2EF560486A6940098B216 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JNXFree;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = JNXFree;
+			productReference = 8DC2EF5B0486A6940098B216 /* JNXFree.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "JNXFree" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* JNXFree */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DC2EF4F0486A6940098B216 /* JNXFree */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DC2EF520486A6940098B216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
+				E04755F7121587C300F38F80 /* JNXPasswordPanel.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E0FCDC93121589F3002B3A8C /* version script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "version script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nperl $SOURCE_ROOT/../../XcodeScripts/versionscript.perl\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DC2EF540486A6940098B216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E04755E8121587BA00F38F80 /* JNXCrashReporter.m in Sources */,
+				E04755F4121587C300F38F80 /* JNXKeyChainPassword.m in Sources */,
+				E04755F6121587C300F38F80 /* JNXPasswordPanel.m in Sources */,
+				E04755F9121587C300F38F80 /* NSDictionary+KeyValueStringEncoding.m in Sources */,
+				E04755FB121587C300F38F80 /* NSString+PercentEscape.m in Sources */,
+				E047560D121587D200F38F80 /* JNXAdvancedDatedQueue.m in Sources */,
+				E047560F121587D200F38F80 /* JNXDatedQueue.m in Sources */,
+				E0475611121587D200F38F80 /* JNXMTQueue.m in Sources */,
+				E0475613121587D200F38F80 /* JNXRedBlackTree.m in Sources */,
+				E0475614121587D200F38F80 /* rb.c in Sources */,
+				E0475617121587D200F38F80 /* JNXSortedArray.m in Sources */,
+				E047562E1215883C00F38F80 /* osversion.c in Sources */,
+				E047569C1215894900F38F80 /* NSThread+LeopardAdditions.m in Sources */,
+				E047569E1215894900F38F80 /* NSData+RSAAddition.m in Sources */,
+				E04756A01215894900F38F80 /* NSData+ZlibAddition.m in Sources */,
+				E04756A21215894900F38F80 /* NSData+sha1Addition.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1667FE841158C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB91AE08733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JNXFree_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				PRODUCT_NAME = JNXFree;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		1DEB91AF08733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JNXFree_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				PRODUCT_NAME = JNXFree;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		1DEB91B208733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = 4.0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.4;
+			};
+			name = Debug;
+		};
+		1DEB91B308733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = 4.0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "JNXFree" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91AE08733DA50010E9CD /* Debug */,
+				1DEB91AF08733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "JNXFree" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91B208733DA50010E9CD /* Debug */,
+				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
