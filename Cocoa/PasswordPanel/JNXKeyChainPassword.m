@@ -458,9 +458,9 @@ enum {
 		return;
 	}
 	
-	int		fieldindex = [visibleCredentialFields indexOfObject:endedTextField];
+	NSInteger		fieldindex = [visibleCredentialFields indexOfObject:endedTextField];
 	
-	if( NSNotFound == fieldindex || fieldindex < 1)
+	if( (NSNotFound == fieldindex) || (fieldindex < 1) )
 	{
 		JLog(@"Internal weirdness - index could not be found");
 		return;
