@@ -20,7 +20,7 @@
 	DJLog(@"%@",[self description]);
 	
 	RSA *newRSA = NULL;
-	BIO *publickeymemory  = BIO_new_mem_buf((void *)[publicKeyString cString], [publicKeyString cStringLength] );
+	BIO *publickeymemory  = BIO_new_mem_buf((void *)[publicKeyString UTF8String], [publicKeyString lengthOfBytesUsingEncoding:NSUTF8StringEncoding] );
 	
 	if( NULL == publickeymemory )
 	{
@@ -111,7 +111,7 @@ int verify_sha1(unsigned char *msg, unsigned int mlen, unsigned char *sig,
 	DJLog(@"%@",[self description]);
 	
 	RSA *newRSA = NULL;
-	BIO *publickeymemory  = BIO_new_mem_buf((void *)[publicKeyString cString], [publicKeyString cStringLength] );
+	BIO *publickeymemory  = BIO_new_mem_buf((void *)[publicKeyString UTF8String], [publicKeyString lengthOfBytesUsingEncoding:NSUTF8StringEncoding] );
 	
 	if( NULL == publickeymemory )
 	{

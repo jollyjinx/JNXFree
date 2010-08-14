@@ -104,6 +104,7 @@
 		{
 			case NSAlertDefaultReturn	:
 			{
+				NSError *nsError = nil;
 				NSString *mailString = [NSString stringWithFormat:@"mailto:%@?subject=%@ (%@ %@ %s %@)&body=%@\n%@\nLogfilecontents:\n%@\n",[[[NSBundle  mainBundle] infoDictionary] objectForKey: JNX_CRASHREPORTER_MAILTOKEY]
 																											,[[[NSBundle  mainBundle] infoDictionary] objectForKey: JNX_CRASHREPORTER_SUBJECTKEY]
 																											,[[[NSBundle  mainBundle] infoDictionary] objectForKey: @"CFBundleShortVersionString"]
@@ -111,8 +112,8 @@
 																											,((CFByteOrderBigEndian==CFByteOrderGetCurrent())?"PPC":"i386")
 																											,[[NSProcessInfo processInfo] operatingSystemVersionString]
 																											,mailbodyString
-																											,[NSString stringWithContentsOfFile:lastCrashReportFilename]
-																											,[NSString stringWithContentsOfFile:previousLogfileName]];
+																											,[NSString stringWithContentsOfFile:lastCrashReportFilename encoding:NSUTF8StringEncoding error:&nsError]
+																											,[NSString stringWithContentsOfFile:previousLogfileName encoding:NSUTF8StringEncoding error:&nsError]];
 													
 				NSURL *url = [NSURL URLWithString:[(NSString*)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)mailString, NULL, NULL, kCFStringEncodingISOLatin1) autorelease]];
 				[[NSWorkspace sharedWorkspace] openURL:url];
