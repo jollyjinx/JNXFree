@@ -342,7 +342,14 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "JNXFree" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* JNXFree */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
@@ -415,78 +422,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		1DEB91AE08733DA50010E9CD /* 10.4.Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = JNXFree_Prefix.pch;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				PRODUCT_NAME = JNXFree;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = 10.4.Debug;
-		};
-		1DEB91AF08733DA50010E9CD /* 10.4.Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = JNXFree_Prefix.pch;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				PRODUCT_NAME = JNXFree;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = 10.4.Release;
-		};
-		1DEB91B208733DA50010E9CD /* 10.4.Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
-				GCC_VERSION = 4.0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.4;
-			};
-			name = 10.4.Debug;
-		};
-		1DEB91B308733DA50010E9CD /* 10.4.Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					NDEBUG,
-					NS_BLOCK_ASSERTIONS,
-				);
-				GCC_VERSION = 4.0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.4;
-			};
-			name = 10.4.Release;
-		};
-		E0EC21251216860D0002EC35 /* 10.5.Release */ = {
+		E04980E112C27A2300AC614F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
@@ -495,15 +431,24 @@
 					NDEBUG,
 					NS_BLOCK_ASSERTIONS,
 				);
-				GCC_VERSION = 4.2;
+				GCC_VERSION = 4.0;
+				"GCC_VERSION[sdk=macosx10.4][arch=i386]" = 4.0;
+				"GCC_VERSION[sdk=macosx10.4][arch=ppc]" = 4.0;
+				"GCC_VERSION[sdk=macosx10.6][arch=x86_64]" = 4.2;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx10.4][arch=i386]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx10.4][arch=ppc]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx10.6][arch=x86_64]" = 10.5;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.4;
+				"SDKROOT[arch=i386]" = macosx10.4;
+				"SDKROOT[arch=ppc]" = macosx10.4;
+				"SDKROOT[arch=x86_64]" = macosx10.5;
 			};
-			name = 10.5.Release;
+			name = Release;
 		};
-		E0EC21261216860D0002EC35 /* 10.5.Release */ = {
+		E04980E212C27A2300AC614F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -518,36 +463,41 @@
 				PRODUCT_NAME = JNXFree;
 				WRAPPER_EXTENSION = framework;
 			};
-			name = 10.5.Release;
+			name = Release;
 		};
-		E0EC21271216865D0002EC35 /* 10.5.Debug */ = {
+		E0EC21251216860D0002EC35 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
-				GCC_VERSION = 4.2;
+				GCC_VERSION = 4.0;
+				"GCC_VERSION[sdk=macosx10.4][arch=i386]" = 4.0;
+				"GCC_VERSION[sdk=macosx10.4][arch=ppc]" = 4.0;
+				"GCC_VERSION[sdk=macosx10.6][arch=x86_64]" = 4.2;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx10.4][arch=i386]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx10.4][arch=ppc]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx10.6][arch=x86_64]" = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.4;
+				"SDKROOT[arch=i386]" = macosx10.4;
+				"SDKROOT[arch=ppc]" = macosx10.4;
+				"SDKROOT[arch=x86_64]" = macosx10.5;
 			};
-			name = 10.5.Debug;
+			name = Debug;
 		};
-		E0EC21281216865D0002EC35 /* 10.5.Debug */ = {
+		E0EC21261216860D0002EC35 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JNXFree_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
@@ -555,7 +505,7 @@
 				PRODUCT_NAME = JNXFree;
 				WRAPPER_EXTENSION = framework;
 			};
-			name = 10.5.Debug;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -563,24 +513,20 @@
 		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "JNXFree" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DEB91AE08733DA50010E9CD /* 10.4.Debug */,
-				1DEB91AF08733DA50010E9CD /* 10.4.Release */,
-				E0EC21281216865D0002EC35 /* 10.5.Debug */,
-				E0EC21261216860D0002EC35 /* 10.5.Release */,
+				E0EC21261216860D0002EC35 /* Debug */,
+				E04980E212C27A2300AC614F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = 10.4.Release;
+			defaultConfigurationName = Debug;
 		};
 		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "JNXFree" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DEB91B208733DA50010E9CD /* 10.4.Debug */,
-				1DEB91B308733DA50010E9CD /* 10.4.Release */,
-				E0EC21271216865D0002EC35 /* 10.5.Debug */,
-				E0EC21251216860D0002EC35 /* 10.5.Release */,
+				E0EC21251216860D0002EC35 /* Debug */,
+				E04980E112C27A2300AC614F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = 10.4.Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
