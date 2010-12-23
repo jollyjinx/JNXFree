@@ -258,8 +258,8 @@
 		E047562B1215883C00F38F80 /* osversion */ = {
 			isa = PBXGroup;
 			children = (
-				E047562C1215883C00F38F80 /* osversion.c */,
 				E047562D1215883C00F38F80 /* osversion.h */,
+				E047562C1215883C00F38F80 /* osversion.c */,
 			);
 			name = osversion;
 			path = ../System/osversion;

@@ -14,9 +14,9 @@
 
 int osversion(void)
 {
-	static int	currentosversion = -1;
+	static int	currentosversion = JNX_OSVERSION_UNKNOWN;
 	
-	if( -1 != currentosversion )
+	if( JNX_OSVERSION_UNKNOWN != currentosversion )
 	{
 		return currentosversion;
 	}
@@ -51,6 +51,7 @@ int osversion(void)
 	if( -1 == currentosversion ) 
 	{
 		fprintf(stderr,"Unknown system version:%d\n",currentosversion);
+		currentosversion = JNX_OSVERSION_UNKNOWN;
 	}
 	#if DEBUG
 		fprintf(stderr,"osversion() :%x\n",currentosversion);
