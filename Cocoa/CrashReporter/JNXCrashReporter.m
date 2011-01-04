@@ -12,8 +12,6 @@
 
 #define JNX_CRASHREPORTER_DEFAULTS_DATEKEY		@"JNXCrashReporter.lastCrashTestDate"
 #define JNX_CRASHREPORTER_DEFAULTS_VERSIONKEY	@"JNXCrashReporter.lastCrashVersion"
-#define JNX_CRASHREPORTER_SUBJECTKEY			@"JNXCrashReporter.subject"
-#define JNX_CRASHREPORTER_MAILTOKEY				@"JNXCrashReporter.mailto"
 #define JNX_CRASHREPORTER_BODYTEXT				@"Please describe the circumstances leading to the crash and any other relevant information:\n\n\n\n\n\n\nCrashlog follows:\n"
 
 @implementation JNXCrashReporter

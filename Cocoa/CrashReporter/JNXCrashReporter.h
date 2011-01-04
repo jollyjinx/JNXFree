@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#define JNX_CRASHREPORTER_SUBJECTKEY			@"JNXCrashReporter.subject"
+#define JNX_CRASHREPORTER_MAILTOKEY				@"JNXCrashReporter.mailto"
 
 @interface JNXCrashReporter : NSObject 
 {
