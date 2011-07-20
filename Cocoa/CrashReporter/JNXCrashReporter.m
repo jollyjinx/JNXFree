@@ -14,6 +14,12 @@
 #define JNX_CRASHREPORTER_DEFAULTS_VERSIONKEY	@"JNXCrashReporter.lastCrashVersion"
 #define JNX_CRASHREPORTER_BODYTEXT				@"Please describe the circumstances leading to the crash and any other relevant information:\n\n\n\n\n\n\nCrashlog follows:\n"
 
+@interface  NSObject(SharedLicenseClass)
++ sharedLicense; 
+- isAppStoreVersion;
+@end
+
+
 @implementation JNXCrashReporter
 
 + (NSString *)logFileName
@@ -22,6 +28,26 @@
 		#warning not using Crashreporter in debug compiles 
 		return nil;
 	#endif
+	
+	
+	Class	SharedLicenseClass		=  NSClassFromString(@"SharedLicense");
+	
+	if( SharedLicenseClass )
+	{
+		id	sharedLicense = [SharedLicenseClass sharedLicense];
+		
+		if( [sharedLicense respondsToSelector:@selector(isAppStoreVersion)] && [sharedLicense isAppStoreVersion] )
+		{
+			NSString		*applicationSupportDirectory	= [[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:[[NSProcessInfo processInfo] processName]];
+			NSFileManager	*fileManager					= [NSFileManager defaultManager];
+			if (![fileManager fileExistsAtPath:applicationSupportDirectory]) 
+			{
+				[fileManager createDirectoryAtPath:applicationSupportDirectory attributes:nil];
+			}
+		
+			return [applicationSupportDirectory stringByAppendingPathComponent:[[[NSProcessInfo processInfo] processName] stringByAppendingPathExtension:@"log"]];
+		}
+	}	
 	return [[[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:@"Logs"] stringByAppendingPathComponent:[[[NSProcessInfo processInfo] processName] stringByAppendingPathExtension:@"log"]];
 }
 
