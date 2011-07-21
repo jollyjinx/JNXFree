@@ -15,7 +15,8 @@
 #define JNX_CRASHREPORTER_BODYTEXT				@"Please describe the circumstances leading to the crash and any other relevant information:\n\n\n\n\n\n\nCrashlog follows:\n"
 
 @interface  NSObject(SharedLicenseClass)
-+ sharedLicense; 
++ sharedLicense;
+- jnxLicense;
 - isAppStoreVersion;
 @end
 
@@ -33,12 +34,10 @@
 	Class	SharedLicenseClass		=  NSClassFromString(@"SharedLicense");
 	
 	if( SharedLicenseClass )
-	{
-		id	sharedLicense = [SharedLicenseClass sharedLicense];
-		
-		if( [sharedLicense respondsToSelector:@selector(isAppStoreVersion)] && [sharedLicense isAppStoreVersion] )
+	{		
+		if( [[[SharedLicenseClass sharedLicense] jnxLicense] isAppStoreVersion] )
 		{
-			NSString		*applicationSupportDirectory	= [[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:[[NSProcessInfo processInfo] processName]];
+			NSString		*applicationSupportDirectory	= [[[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:@"Application Support"] stringByAppendingPathComponent:[[NSProcessInfo processInfo] processName]];
 			NSFileManager	*fileManager					= [NSFileManager defaultManager];
 			if (![fileManager fileExistsAtPath:applicationSupportDirectory]) 
 			{
