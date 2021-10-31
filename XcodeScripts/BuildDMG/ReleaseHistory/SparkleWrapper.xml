@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+   <channel>
+   <title>JollysFastVNC Changelog</title>
+   <link>http://www.jinx.de/JollysFastVNC.update.xml</link>
+   <description>Most recent changes with links to updates.</description>
+   <language>en</language>
+     <item>
+        <title>New Version</title>
+        <description><![CDATA[
+JNX_RELEASE_TEXT
+        ]]></description> 
+        <pubDate>JNX_RELEASE_DATE</pubDate>
+        <enclosure sparkle:shortVersionString="JNX_RELEASE_VERSION" sparkle:version="JNX_RELEASE_REVISION" JNX_SPARKLE_SIGNATURE_ATTRIBUTE url="http://www.jinx.de/JollysFastVNC_files/JollysFastVNC.JNX_RELEASE_VERSION.(JNX_RELEASE_REVISION).dmg" length="JNX_SPARKLE_SIZE" type="application/octet-stream"/>
+  	 </item>
+</channel>
+</rss>

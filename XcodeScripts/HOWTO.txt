@@ -1,0 +1,28 @@
+If you want to change your Info.plist according to the latest build and also want to use Sparkle you need a build version Script like this: versionscript.perl (Add a new build phase / script phase to your target).
+ 
+This will rewrite CFBundleVersionfrom CFBundleShortVersionString and create three special keys:
+JNXCommitDate,JNXCommitRevision,JNXCommitVersion.
+ 
+My latest JollysFastVNC Info.plist file looks then like:
+    <key>CFBundleShortVersionString</key>
+    <string>0.96.79</string>
+    <key>CFBundleSignature</key>
+    <string>????</string>
+    <key>CFBundleVersion</key>
+    <string>901506</string>
+    <key>JNXCommitDate</key>
+    <string>Thu Jan 15 14:25:49 CET 2009</string>
+    <key>JNXCommitRevision</key>
+    <string>f711f82</string>
+    <key>JNXCommitVersion</key>
+    <string>901506</string>
+ 
+The Commit/Bundle version is continuously growing and is just the Year-2000, dayofyear, n-th commit number in the build directory on the commit date. This way this number keeps always increasing. If you have uncommitted work a ‘M’ (modified) is appended. The Info panel of the application then looks like this:
+
+ 
+The JNX keys I need for Sparkle and the automated release history and dmg creation. In case you are interested in that build script, it's in BuildDMG/
+
+I've added now support for Sparkle signatures. You need to have the private key in a keychain note. The note in the keychain note has to be be named "$bundleid.sparkle". If there is no keychain entry found the signature part of the sparkle will be taken out. 
+ 
+Add a new build phase / script phase to your target with the buildDMG script and add the Other Resources directory to the project.
+And I almost forgot - you get a final.dmg and the release.dmg inside. The final dmg has the DSYM file and the sparkle update inside ( your users don’t need that ). Archive the final.dmg so you can come back for debugging the exact released application with your debugging symbols.

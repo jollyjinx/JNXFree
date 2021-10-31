@@ -1,0 +1,7 @@
+
+<p>Version JNX_RELEASE_VERSION (JNX_RELEASE_REVISION) JNX_RELEASE_DATE<br/>
+	<p/>
+	<p/>
+	<ul>
+		<li>Updated to new JNXFree.framework version.
+	</ul>
