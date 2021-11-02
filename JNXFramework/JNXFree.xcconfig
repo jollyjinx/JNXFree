@@ -1,0 +1,15 @@
+//
+//  JNXFree.xcconfig
+//  JNXFree
+//
+//  Created by Patrick Stein on 02.11.21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+MACOSX_DEPLOYMENT_TARGET = 11.0
+PRODUCT_NAME = JNXFree
+
+#include "Generic.xcconfig"
+

@@ -8,12 +8,12 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-// jinx Settings
-PRODUCT_NAME = JNXFramework
+// Generic Jinx Settings
+
 DEVELOPMENT_TEAM = 5V8J7476Q9
 INFOPLIST_KEY_NSHumanReadableCopyright = © Patrick Stein
 
-
+// generic Settings
 
 SUPPORTED_PLATFORMS = watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos
 ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES

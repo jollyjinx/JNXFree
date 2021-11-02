@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E046A905273104CC00E7CC61 /* JNXFree.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = JNXFree.xcconfig; sourceTree = "<group>"; };
 		E086C25C26723B71001F127B /* JNXFree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNXFree.h; sourceTree = "<group>"; };
 		E086C26C26723D97001F127B /* JNXSortedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNXSortedArray.m; sourceTree = "<group>"; };
 		E086C26D26723D97001F127B /* JNXSortedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNXSortedArray.h; sourceTree = "<group>"; };
@@ -89,9 +90,7 @@
 		E08BB1952671DA2500DE6A05 /* NSData+ZlibAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ZlibAddition.h"; sourceTree = "<group>"; };
 		E08BB1962671DA2500DE6A05 /* NSDictionary+KeyValueStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+KeyValueStringEncoding.m"; sourceTree = "<group>"; };
 		E08BB1972671DA2500DE6A05 /* NSString+PercentEscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PercentEscape.h"; sourceTree = "<group>"; };
-		E0906522272BB276000C8B31 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
-		E0906523272BB708000C8B31 /* Framework.iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.iOS.xcconfig; sourceTree = "<group>"; };
-		E0906524272BB721000C8B31 /* Framework.macOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.macOS.xcconfig; sourceTree = "<group>"; };
+		E0906522272BB276000C8B31 /* Generic.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Generic.xcconfig; sourceTree = "<group>"; };
 		E0E4F485272C4C5B009702DA /* JNXFree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JNXFree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -109,9 +108,8 @@
 		E011C316272BDB450081B578 /* JNXFramework */ = {
 			isa = PBXGroup;
 			children = (
-				E0906522272BB276000C8B31 /* Framework.xcconfig */,
-				E0906523272BB708000C8B31 /* Framework.iOS.xcconfig */,
-				E0906524272BB721000C8B31 /* Framework.macOS.xcconfig */,
+				E0906522272BB276000C8B31 /* Generic.xcconfig */,
+				E046A905273104CC00E7CC61 /* JNXFree.xcconfig */,
 			);
 			path = JNXFramework;
 			sourceTree = "<group>";
@@ -474,15 +472,13 @@
 /* Begin XCBuildConfiguration section */
 		E00CF798272D0FA100013F45 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0906522272BB276000C8B31 /* Framework.xcconfig */;
+			baseConfigurationReference = E046A905273104CC00E7CC61 /* JNXFree.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = JNXFree;
 			};
 			name = Release;
 		};
 		E00CF799272D0FA100013F45 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0906524272BB721000C8B31 /* Framework.macOS.xcconfig */;
 			buildSettings = {
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© Patrick Stein";
 			};
@@ -490,15 +486,13 @@
 		};
 		E0838AA92671D7E300B5C678 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0906522272BB276000C8B31 /* Framework.xcconfig */;
+			baseConfigurationReference = E046A905273104CC00E7CC61 /* JNXFree.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = JNXFree;
 			};
 			name = Debug;
 		};
 		E0E4F48A272C4C5B009702DA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0906524272BB721000C8B31 /* Framework.macOS.xcconfig */;
 			buildSettings = {
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© Patrick Stein";
 			};
