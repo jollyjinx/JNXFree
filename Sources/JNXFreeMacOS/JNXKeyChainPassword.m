@@ -6,12 +6,11 @@
 //  Copyright 2008 Jinx.de. All rights reserved.
 //
 
-#import "JNXKeyChainPassword.h"
-
+@import JNXFree;
 #import <Security/Security.h>
-#import "JNXLog.h"
+
+#import "JNXKeyChainPassword.h"
 #import "JNXPasswordPanel.h"
-#import "NSDictionary+KeyValueStringEncoding.h"
 
 
 static int	passwordpanelcount = 0;

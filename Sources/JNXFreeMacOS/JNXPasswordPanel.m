@@ -6,7 +6,7 @@
 //  Copyright 2008 Jinx.de. All rights reserved.
 //
 
-#import "JNXLog.h"
+@import JNXFree;
 #import "JNXPasswordPanel.h"
 #import "JNXKeyChainPassword.h"
 

@@ -8,8 +8,7 @@
 
 #import "JNXCrashReporter.h"
 
-#import "JNXLog.h"
-
+@import JNXFree;
 #import "osversion.h"
 #include <unistd.h>
 #include <unistd.h>
