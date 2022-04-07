@@ -9,6 +9,7 @@
 #import "JNXCrashReporter.h"
 
 @import JNXFree;
+
 #import "osversion.h"
 #include <unistd.h>
 #include <unistd.h>
@@ -23,7 +24,7 @@
 @interface  NSObject(SharedLicenseClass)
 + sharedLicense;
 - jnxLicense;
-- isAppStoreVersion;
+- (BOOL)isAppStoreVersion;
 @end
 
 
@@ -78,7 +79,7 @@ static     BOOL         uselogfile = YES;
         {
             id sharedLicense     = [SharedLicenseClass sharedLicense];
             id jnxLicense        = [sharedLicense jnxLicense];
-            
+
             if( [jnxLicense isAppStoreVersion] )
             {
                 NSString        *applicationSupportDirectory    = [[[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:@"Application Support"] stringByAppendingPathComponent:[[NSProcessInfo processInfo] processName]];
