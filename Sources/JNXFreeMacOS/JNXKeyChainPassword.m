@@ -185,7 +185,8 @@ enum {
 	// now create the window with the popupbutton, close and cancle button without credentials though.
 	
 	{
-		if( ! [NSBundle loadNibNamed:@"JNXPasswordPanel" owner:self] )
+
+		if( ! [SWIFTPM_MODULE_BUNDLE loadNibNamed:@"JNXPasswordPanel" owner:self topLevelObjects:nil] )
 		{
 			JLog(@"Could not load nib file for JNXPassword Panel");
 			[conditionLock lock];
@@ -361,7 +362,7 @@ enum {
 				[anLabelField setStringValue:[NSString stringWithFormat:@"%@:",aLabel]];
 				[anLabelField setEditable:NO];
 				[anLabelField setBezeled:NO];
-				[anLabelField setAlignment:  NSRightTextAlignment];
+                [anLabelField setAlignment:  NSTextAlignmentRight];
 				[anLabelField setDrawsBackground:NO];
 				[contentView addSubview:anLabelField];
 				[visibleCredentialFields addObject:anLabelField];
@@ -388,7 +389,7 @@ enum {
 				[contentView addSubview:anInputField];
 				[anInputField setEditable:YES];
 				[anInputField setBezeled:YES];
-				[anInputField setAlignment:NSLeftTextAlignment];
+                [anInputField setAlignment:NSTextAlignmentLeft];
 				[anInputField setDrawsBackground:YES];
 
 				[credentialTypeButton setNextKeyView:anInputField];
