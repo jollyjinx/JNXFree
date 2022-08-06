@@ -22,14 +22,22 @@ Desktop DB
 .fseventsd
 .syncinfo
 .TemporaryItems
+.apdisk
+._*
 #
 # xcode files
 #
 build/
+.build/
+Package.resolved
+.swiftpm
 *~.nib
 *.mode1
 *.mode1v3
 *.mode2v3
 *.pbxuser
-xcuserdata/
-
+xcuserdata
+#
+#
+openssl/
+#
