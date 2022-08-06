@@ -1,5 +1,5 @@
 //
-//  JNXKeyChainPassword.h
+//  JNXKeychainPassword.h
 //  JNXPasswordPanel
 //
 //  Created by Patrick Stein on 31/12/08.
@@ -9,7 +9,7 @@
 @import AppKit;
 
 
-@interface JNXKeyChainPassword : NSObject <NSWindowDelegate>
+@interface JNXKeychainPassword : NSObject <NSWindowDelegate>
 {
 	NSConditionLock		*conditionLock;
 	

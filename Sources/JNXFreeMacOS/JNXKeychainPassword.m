@@ -1,5 +1,5 @@
 //
-//  JNXKeyChainPassword.m
+//  JNXKeychainPassword.m
 //  JNXPasswordPanel
 //
 //  Created by Patrick Stein on 31/12/08.
@@ -9,7 +9,7 @@
 @import JNXFree;
 #import <Security/Security.h>
 
-#import "JNXKeyChainPassword.h"
+#import "JNXKeychainPassword.h"
 #import "JNXPasswordPanel.h"
 
 
@@ -25,7 +25,7 @@ enum {
 #define verticalmargin		10.0f
 #define fieldheight			15.0f
 
-@implementation JNXKeyChainPassword
+@implementation JNXKeychainPassword
 
 - initWithItem:(NSString*)anItemName title:(NSString*)aTitle credentialTypes:(NSArray *)aCredentialTypesArray showPanel:(BOOL)shouldshowpanel;
 {
@@ -320,14 +320,14 @@ enum {
 			if( explanatoryString )
 			{
 				NSFont	*labelFont = [NSFont messageFontOfSize:0.0];
-				NSSize size = [JNXKeyChainPassword findSizeForString:explanatoryString font:labelFont width:innerwidth];
+				NSSize size = [JNXKeychainPassword findSizeForString:explanatoryString font:labelFont width:innerwidth];
 				
 				
 				if( (size.height > 200.0) && (innerwidth < 300.0) )		// widen text when its much longer than wide
 				{
 					widthleft	+= 100.0;
 					widthright	+= 100.0;
-					size		= [JNXKeyChainPassword findSizeForString:explanatoryString font:labelFont width:innerwidth];
+					size		= [JNXKeychainPassword findSizeForString:explanatoryString font:labelFont width:innerwidth];
 				}
 				
 				DJLog(@"Size now: %f %f",size.width,size.height);

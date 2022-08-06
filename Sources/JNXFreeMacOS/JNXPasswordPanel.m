@@ -8,7 +8,7 @@
 
 @import JNXFree;
 #import "JNXPasswordPanel.h"
-#import "JNXKeyChainPassword.h"
+#import "JNXKeychainPassword.h"
 
 NSString *JNXPasswordPanel_Credential_Protocol			= @"JNXPasswordPanel_Credential_Protocol";
 NSString *JNXPasswordPanel_Credential_Text				= @"JNXPasswordPanel_Credential_Text";
@@ -54,7 +54,7 @@ NSString *JNXPasswordPanel_CredentialKey_Password		= @"Password";
 + (NSMutableDictionary *)credentialsForItem:(NSString*)itemName title:(NSString*)title credentialTypes:(NSArray *)credentialTypesArray showPanel:(BOOL)showpanel;
 {
 	DJLOG
-	JNXKeyChainPassword *keyChainPassword = [[JNXKeyChainPassword alloc] initWithItem:itemName
+	JNXKeychainPassword *keyChainPassword = [[JNXKeychainPassword alloc] initWithItem:itemName
 																				title:title 
 																	  credentialTypes:credentialTypesArray
 																			showPanel:showpanel];
